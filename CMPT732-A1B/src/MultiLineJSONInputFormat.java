@@ -16,8 +16,8 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
  
     public class MultiLineRecordReader extends RecordReader<LongWritable, Text> {
         LineRecordReader linereader;
-        LongWritable current_key;
-        Text current_value;
+        LongWritable current_key = new LongWritable();
+        Text current_value = new Text();
  
         public MultiLineRecordReader(byte[] recordDelimiterBytes) {
             linereader = new LineRecordReader(recordDelimiterBytes);
