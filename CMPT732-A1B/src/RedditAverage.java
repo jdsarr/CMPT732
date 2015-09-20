@@ -101,7 +101,7 @@ public class RedditAverage extends Configured implements Tool {
         Job job = Job.getInstance(conf, "reddit average");
         job.setJarByClass(RedditAverage.class);
  
-        job.setInputFormatClass(TextInputFormat.class);
+        job.setInputFormatClass(MultiLineJSONInputFormat.class);
  
         job.setMapperClass(RedAvgMapper.class);
         job.setCombinerClass(RedAvgCombiner.class);

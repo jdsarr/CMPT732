@@ -33,9 +33,33 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         public boolean nextKeyValue() throws IOException {
             /* do something better here to use linereader and
             set current_key and current_value */
-            return linereader.nextKeyValue();
+        	
+        	boolean ret = linereader.nextKeyValue();
+        	current_value.set("");
+        	
+        	if(linereader.getCurrentValue().equals("{")){
+        		
+            	while(ret == true && !linereader.getCurrentValue().equals("}")){	
+            		current_key.set(linereader.getCurrentKey().get());
+            		current_value.set(current_value.toString()
+            				          + linereader.getCurrentValue().toString());
+            		ret = linereader.nextKeyValue();
+            	}  		
+            	
+            	if(ret == true){	
+            		current_key.set(linereader.getCurrentKey().get());
+            		current_value.set(current_value.toString()
+            				          + linereader.getCurrentValue().toString());
+            	}
+            	
+        	}else{
+        		ret = false;
+        	}
+        	
+            return ret;
         }
  
+        
         @Override
         public float getProgress() throws IOException {
             return linereader.getProgress();
@@ -43,14 +67,14 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
  
         @Override
         public LongWritable getCurrentKey() {
-            // return current_key;
-            return linereader.getCurrentKey();
+            return current_key;
+            // return linereader.getCurrentKey();
         }
  
         @Override
         public Text getCurrentValue() {
-            // return current_value;
-            return linereader.getCurrentValue();
+            return current_value;
+            // return linereader.getCurrentValue();
         }
  
         @Override
