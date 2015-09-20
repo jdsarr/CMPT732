@@ -14,5 +14,8 @@
 	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/hadoop-2.7.1/share/hadoop/mapreduce/hadoop-mapreduce-client-jobclient-2.7.1-tests.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/hadoop-2.7.1/share/hadoop/mapreduce/hadoop-mapreduce-client-shuffle-2.7.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/hadoop-2.7.1/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/CMPT 732 Assignments/A1/Part B/jackson-annotations-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/CMPT 732 Assignments/A1/Part B/jackson-core-2.6.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/Dropbox/SFU/SFU FALL 2015/CMPT 732 - Big Data Lab 1/CMPT 732 Assignments/A1/Part B/jackson-databind-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
