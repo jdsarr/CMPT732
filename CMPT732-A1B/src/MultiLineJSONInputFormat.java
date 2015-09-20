@@ -37,7 +37,7 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         	boolean ret = linereader.nextKeyValue();
         	current_value.set("");
         	
-        	if(linereader.getCurrentValue().equals("{")){
+        	if(ret == true && linereader.getCurrentValue().equals("{")){
         		
             	while(ret == true && !linereader.getCurrentValue().equals("}")){	
             		current_key.set(linereader.getCurrentKey().get());
@@ -52,10 +52,7 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
             				          + linereader.getCurrentValue().toString());
             	}
             	
-        	}else{
-        		ret = false;
         	}
-        	
             return ret;
         }
  
