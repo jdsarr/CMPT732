@@ -106,6 +106,8 @@ public class RedditAverage extends Configured implements Tool {
         job.setMapperClass(RedAvgMapper.class);
         job.setCombinerClass(RedAvgCombiner.class);
         job.setReducerClass(RedAvgReducer.class);
+        
+        job.setMapOutputValueClass(LongPairWritable.class);
  
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
