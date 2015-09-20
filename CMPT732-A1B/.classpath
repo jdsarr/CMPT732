@@ -2,22 +2,22 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/guava-14.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/jackson-databind-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/jackson-core-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/jackson-annotations-2.6.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/commons-logging-1.1.3.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-app-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-common-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-core-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-hs-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-hs-plugins-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-jobclient-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-jobclient-2.7.1-tests.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-client-shuffle-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-mapreduce-examples-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-nfs-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-common-2.7.1.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Juan Sarria/Documents/GitHub/CMPT732/CMPT732-A1B/lib/hadoop-common-2.7.1-tests.jar"/>
+	<classpathentry kind="lib" path="lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="lib/guava-14.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-common-2.7.1-tests.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-common-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-app-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-common-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-core-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-hs-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-hs-plugins-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-jobclient-2.7.1-tests.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-jobclient-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-client-shuffle-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-mapreduce-examples-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/hadoop-nfs-2.7.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.6.0.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.6.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
