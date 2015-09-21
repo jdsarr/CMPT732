@@ -40,12 +40,19 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         	String trimmed;                         //line without leading or trailing whitespace
         	
         	
+        	//If there is a next line and that line starts with "{"
         	if(ret == true && (linereader.getCurrentValue().toString().startsWith("{"))){
         		
+        		
             	while(ret == true){
+            		
+            		//trimming just in case there is whitespace after "}"
             		trimmed = linereader.getCurrentValue().toString().trim();
             		current_value.append(trimmed.getBytes(),0,trimmed.length());
-            		if(trimmed.endsWith("}"))
+            		
+            		//if there is a "}" character at the end of the line,
+            		//this is the end of the object
+            		if(trimmed.endsWith("}"))									
             			break;
             		ret = linereader.nextKeyValue();
             	}  			
@@ -66,12 +73,14 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         @Override
         public LongWritable getCurrentKey() {
             return current_key;
+            // Default code below
             // return linereader.getCurrentKey();
         }
  
         @Override
         public Text getCurrentValue() {
             return current_value;
+            // Default code below 
             // return linereader.getCurrentValue();
         }
  

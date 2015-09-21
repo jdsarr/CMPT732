@@ -28,11 +28,20 @@ public class WikipediaPopular extends Configured implements Tool {
 	        public void map(LongWritable key, Text value, Context context
 	                ) throws IOException, InterruptedException {
 	        	
+	        	//Split line by whitespace
+	        	//Important elements of the array are
+	        	// array[0]: language of page
+	        	// array[1]: name of page
+	        	// array[3]: pageviews
+	        	
+	        	
 	        	array = value.toString().split(" ");
 	        	
+	        	//Page must be in English and cannot be the Main page or Special page
 	        	if(array[0].equals("en") && !array[1].equals("Main_Page") && 
 	        	   !array[1].startsWith("Special:")){
 	        		
+	        		//Get substring of filename between the 11th and 22th character (displays date and hour)
 	        		String filename = ((FileSplit) context.getInputSplit()).getPath().getName().substring(11, 22);	        		
 	        		one.set(Long.parseLong(array[3]));        		
 	        		word.set(filename);
@@ -51,6 +60,8 @@ public class WikipediaPopular extends Configured implements Tool {
 	        public void reduce(Text key, Iterable<LongWritable> values,
 	                           Context context) throws IOException, InterruptedException {
 	            long max = 0;
+	            
+	            //Find the maximum value for a specific key
 	            for (LongWritable val : values) {
 	                if(val.get()>max)
 	                	max = val.get();

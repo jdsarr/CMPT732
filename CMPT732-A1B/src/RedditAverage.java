@@ -34,12 +34,14 @@ public class RedditAverage extends Configured implements Tool {
         		        throws IOException, InterruptedException {
         	
         	
+        	//Comment this out when testing MultiLineJSONInputFormat
+        	//JsonParser Code provided in the assignment
+        	
         	JsonNode data = json_mapper.readValue(value.toString(), JsonNode.class);
         	word.set(data.get("subreddit").textValue());
         	pair.set(1,data.get("score").longValue());
         	
         	//Testing purposes for MultiLineJSONInputFormat
-        	
         	//word.set(value);
         	//pair.set(1, 1);
         	
@@ -53,13 +55,14 @@ public class RedditAverage extends Configured implements Tool {
 		   
 		private LongPairWritable result = new LongPairWritable();
 		
+
 		@Override
 		public void reduce(Text key, Iterable<LongPairWritable> values,
 	                           Context context) throws IOException, InterruptedException {
 		
 			long sum0 = 0;
 			long sum1 = 0;
-			   
+			
 			for (LongPairWritable val : values) {
 	            	
 				sum0+= val.get_0();
@@ -89,8 +92,6 @@ public class RedditAverage extends Configured implements Tool {
         	   sum0+= val.get_0();
         	   sum1+= val.get_1();
             }
-           
-           
            
            avg = ((double)sum1)/((double)sum0);
            result.set(avg); 
