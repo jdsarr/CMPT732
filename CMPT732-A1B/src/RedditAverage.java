@@ -32,9 +32,15 @@ public class RedditAverage extends Configured implements Tool {
         public void map(LongWritable key, Text value, Context context) 
         		        throws IOException, InterruptedException {
         	
-        	JsonNode data = json_mapper.readValue(value.toString(), JsonNode.class);
-        	word.set(data.get("subreddit").textValue());
-        	pair.set(1,data.get("score").longValue());
+        	
+        	//JsonNode data = json_mapper.readValue(value.toString(), JsonNode.class);
+        	//word.set(data.get("subreddit").textValue());
+        	//pair.set(1,data.get("score").longValue());
+        	
+        	//Testing purposes
+        	
+        	word.set(value);
+        	pair.set(1, 1);
         	
         	context.write(word, pair);
         }

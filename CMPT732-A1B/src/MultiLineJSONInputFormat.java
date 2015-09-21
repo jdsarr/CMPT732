@@ -16,8 +16,8 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
  
     public class MultiLineRecordReader extends RecordReader<LongWritable, Text> {
         LineRecordReader linereader;
-        LongWritable current_key = new LongWritable();
-        Text current_value = new Text();
+        LongWritable current_key = new LongWritable(0);
+        Text current_value = new Text("");
  
         public MultiLineRecordReader(byte[] recordDelimiterBytes) {
             linereader = new LineRecordReader(recordDelimiterBytes);
@@ -27,6 +27,7 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         public void initialize(InputSplit genericSplit,
                 TaskAttemptContext context) throws IOException {
             linereader.initialize(genericSplit, context);
+
         }
  
         @Override
@@ -35,23 +36,26 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
             set current_key and current_value */
         	
         	boolean ret = linereader.nextKeyValue();
-        	current_value.set("");
+        	current_value.clear();
+        	String trimmed;                         //line without leading whitespace
         	
-        	if(ret == true && linereader.getCurrentValue().equals("{")){
+        	
+        	if(ret == true && (linereader.getCurrentValue().find("{") != -1)){
         		
-            	while(ret == true && !linereader.getCurrentValue().equals("}")){	
-            		current_key.set(linereader.getCurrentKey().get());
-            		current_value.set(current_value.toString()
-            				          + linereader.getCurrentValue().toString());
+            	while(ret == true && (linereader.getCurrentValue().find("}") == -1)){
+            		trimmed = " " + linereader.getCurrentValue().toString().trim();
+            		current_value.append(trimmed.getBytes(),0,trimmed.length());
             		ret = linereader.nextKeyValue();
             	}  		
             	
             	if(ret == true){	
             		current_key.set(linereader.getCurrentKey().get());
-            		current_value.set(current_value.toString()
-            				          + linereader.getCurrentValue().toString());
+            		trimmed = linereader.getCurrentValue().toString().trim();
+            		current_value.append(trimmed.getBytes(),0,trimmed.length());
             	}
             	
+        	}else{
+        		ret = false;
         	}
             return ret;
         }
@@ -60,6 +64,7 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         @Override
         public float getProgress() throws IOException {
             return linereader.getProgress();
+            
         }
  
         @Override
