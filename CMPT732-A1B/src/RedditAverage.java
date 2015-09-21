@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -33,14 +34,14 @@ public class RedditAverage extends Configured implements Tool {
         		        throws IOException, InterruptedException {
         	
         	
-        	//JsonNode data = json_mapper.readValue(value.toString(), JsonNode.class);
-        	//word.set(data.get("subreddit").textValue());
-        	//pair.set(1,data.get("score").longValue());
+        	JsonNode data = json_mapper.readValue(value.toString(), JsonNode.class);
+        	word.set(data.get("subreddit").textValue());
+        	pair.set(1,data.get("score").longValue());
         	
-        	//Testing purposes
+        	//Testing purposes for MultiLineJSONInputFormat
         	
-        	word.set(value);
-        	pair.set(1, 1);
+        	//word.set(value);
+        	//pair.set(1, 1);
         	
         	context.write(word, pair);
         }
@@ -71,9 +72,9 @@ public class RedditAverage extends Configured implements Tool {
 	}
 	
 	public static class RedAvgReducer 
-		extends Reducer<Text, LongPairWritable, Text, LongWritable> {
+		extends Reducer<Text, LongPairWritable, Text, DoubleWritable> {
 	   
-		private LongWritable result = new LongWritable();
+		private DoubleWritable result = new DoubleWritable();
 	   
 		@Override
 	    public void reduce(Text key, Iterable<LongPairWritable> values,
@@ -81,7 +82,7 @@ public class RedditAverage extends Configured implements Tool {
 		   
 		   long sum0 = 0;
 		   long sum1 = 0;
-		   long avg  = 0;
+		   double avg  = 0;
 		   
            for (LongPairWritable val : values) {
             	
@@ -89,7 +90,9 @@ public class RedditAverage extends Configured implements Tool {
         	   sum1+= val.get_1();
             }
            
-           avg = sum1/sum0;
+           
+           
+           avg = ((double)sum1)/((double)sum0);
            result.set(avg); 
            context.write(key, result);
         }   
@@ -116,7 +119,7 @@ public class RedditAverage extends Configured implements Tool {
         job.setMapOutputValueClass(LongPairWritable.class);
  
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(LongWritable.class);
+        job.setOutputValueClass(DoubleWritable.class);
         job.setOutputFormatClass(TextOutputFormat.class);
         TextInputFormat.addInputPath(job, new Path(args[0]));
         TextOutputFormat.setOutputPath(job, new Path(args[1]));

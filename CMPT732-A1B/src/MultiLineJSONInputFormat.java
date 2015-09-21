@@ -37,22 +37,18 @@ public class MultiLineJSONInputFormat extends TextInputFormat {
         	
         	boolean ret = linereader.nextKeyValue();
         	current_value.clear();
-        	String trimmed;                         //line without leading whitespace
+        	String trimmed;                         //line without leading or trailing whitespace
         	
         	
-        	if(ret == true && (linereader.getCurrentValue().find("{") != -1)){
+        	if(ret == true && (linereader.getCurrentValue().toString().startsWith("{"))){
         		
-            	while(ret == true && (linereader.getCurrentValue().find("}") == -1)){
-            		trimmed = " " + linereader.getCurrentValue().toString().trim();
-            		current_value.append(trimmed.getBytes(),0,trimmed.length());
-            		ret = linereader.nextKeyValue();
-            	}  		
-            	
-            	if(ret == true){	
-            		current_key.set(linereader.getCurrentKey().get());
+            	while(ret == true){
             		trimmed = linereader.getCurrentValue().toString().trim();
             		current_value.append(trimmed.getBytes(),0,trimmed.length());
-            	}
+            		if(trimmed.endsWith("}"))
+            			break;
+            		ret = linereader.nextKeyValue();
+            	}  			
             	
         	}else{
         		ret = false;
