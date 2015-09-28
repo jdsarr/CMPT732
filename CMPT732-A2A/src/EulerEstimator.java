@@ -14,40 +14,44 @@ import org.apache.hadoop.mapreduce.lib.output.NullOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+import java.util.Random;
+
 public class EulerEstimator extends Configured implements Tool {
 
 	   public static class EulerMapper
 	    extends Mapper<LongWritable, Text, Text, LongWritable>{
-	 
-	        private final static LongWritable one = new LongWritable();
-	        private Text word = new Text();
-	        private String[] array = new String[4];
+		   
+		   private int hash;
+		   private long keyCode;
+		   private Random rand;
+		   private long iter;
+		   private long count;
+		   private double sum;
 	 
 	        @Override
 	        public void map(LongWritable key, Text value, Context context
 	                ) throws IOException, InterruptedException {
 	        	
-	        	//Split line by whitespace
-	        	//Important elements of the array are
-	        	// array[0]: language of page
-	        	// array[1]: name of page
-	        	// array[3]: pageviews
+	        	hash = ((FileSplit) context.getInputSplit()).getPath().getName().hashCode();
+	        	keyCode = key.get();
+	        	rand = new Random(keyCode*((long)hash));
+	        	iter = Long.parseLong(value.toString());
+	        	count = 0;
 	        	
-	        	
-	        	array = value.toString().split(" ");
-	        	
-	        	//Page must be in English and cannot be the Main page or Special page
-	        	if(array[0].equals("en") && !array[1].equals("Main_Page") && 
-	        	   !array[1].startsWith("Special:")){
+	        	for(long i = 0; i<iter; i++){
+	        		sum = 0;
 	        		
-	        		//Get substring of filename between the 11th and 22th character (displays date and hour)
-	        		String filename = ((FileSplit) context.getInputSplit()).getPath().getName().substring(11, 22);	        		
-	        		one.set(Long.parseLong(array[3]));        		
-	        		word.set(filename);
-	        		context.write(word, one);     		
-	        	}	             	
+	        		while(sum < 1){
+	        			sum += rand.nextDouble();
+	        			count++;
+	        		}
+	        	}
+	        	
+	        	context.getCounter("Euler", "iterations").increment(iter);
+	        	context.getCounter("Euler", "count").increment(count);        	
+	        	
 	        }
-	    }
+	   }
 	   
 
 	    
