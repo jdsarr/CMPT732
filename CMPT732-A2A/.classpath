@@ -14,5 +14,6 @@
 	<classpathentry kind="lib" path="lib/hadoop-mapreduce-examples-2.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-nfs-2.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/hadoop-common-2.7.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
