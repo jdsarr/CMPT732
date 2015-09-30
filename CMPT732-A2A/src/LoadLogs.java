@@ -1,4 +1,10 @@
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.hadoop.conf.Configuration;
@@ -9,12 +15,6 @@ import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Table;
 import org.apache.hadoop.hbase.util.Bytes;
-
-
-
-
-
-
 
 
 public class LoadLogs {
@@ -34,13 +34,64 @@ public class LoadLogs {
     	return put;
     }
     
+    
+    
+    public static void read_files(String arg){
+    	
+    	try{
+	    	File[] listOfFiles;
+	    	String path = arg;
+	    	
+	    	
+	    	if(path.endsWith("*")){
+	    		path = path.substring(0,path.length()-3);
+	    		File folder = new File(path);
+	    		listOfFiles = folder.listFiles();
+	    	}else{
+	    		listOfFiles = new File[1];
+	    		listOfFiles[0] = new File(path);
+	    	}
+	    	
+	    	for(int i = 0; i < listOfFiles.length; i++){
+	    		
+	    		String line;
+	    		BufferedReader in = new BufferedReader( 
+	    				new InputStreamReader(
+	    		                      new FileInputStream(listOfFiles[i]), "UTF8"));
+	    		
+	    		while((line = in.readLine()) != null){
+	    			get_put(line);
+	    		}
+	    		
+	    		in.close();
+	    	}
+    	}
+	    catch (UnsupportedEncodingException e) 
+	    {
+			System.out.println(e.getMessage());
+	    } 
+	    catch (IOException e) 
+	    {
+			System.out.println(e.getMessage());
+	    }
+	    catch (Exception e)
+	    {
+			System.out.println(e.getMessage());
+	    }
+    	
+    }
+    
+    
     public static void main(String[] args) throws Exception {
     	
+
     	conf = HBaseConfiguration.create();
     	connection = ConnectionFactory.createConnection(conf);
     	table = connection.getTable(TableName.valueOf(args[0]));
     	
-    	
+    	for(int i=1; i < args.length; i++){
+    		read_files(args[i]);
+    	}
     }
 
 }
