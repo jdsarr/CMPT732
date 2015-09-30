@@ -39,33 +39,19 @@ public class LoadLogs {
     public static void read_files(String arg){
     	
     	try{
-	    	File[] listOfFiles;
-	    	String path = arg;
-	    	
-	    	
-	    	if(path.endsWith("*")){
-	    		path = path.substring(0,path.length()-3);
-	    		File folder = new File(path);
-	    		listOfFiles = folder.listFiles();
-	    	}else{
-	    		listOfFiles = new File[1];
-	    		listOfFiles[0] = new File(path);
+    		String line;
+	    	String path = arg;	
+	    	File file = new File(path);
+	    	BufferedReader in = new BufferedReader( 
+	    			new InputStreamReader(
+	    					new FileInputStream(file), "UTF8"));
+		    		
+	    	while((line = in.readLine()) != null){
+	    		get_put(line);
 	    	}
+	    	in.close();
 	    	
-	    	for(int i = 0; i < listOfFiles.length; i++){
-	    		
-	    		String line;
-	    		BufferedReader in = new BufferedReader( 
-	    				new InputStreamReader(
-	    		                      new FileInputStream(listOfFiles[i]), "UTF8"));
-	    		
-	    		while((line = in.readLine()) != null){
-	    			get_put(line);
-	    		}
-	    		
-	    		in.close();
-	    	}
-    	}
+    	}	
 	    catch (UnsupportedEncodingException e) 
 	    {
 			System.out.println(e.getMessage());
