@@ -32,11 +32,17 @@ public class EulerEstimator extends Configured implements Tool {
 	        public void map(LongWritable key, Text value, Context context
 	                ) throws IOException, InterruptedException {
 	        	
+	        	// hash and keyCode used so that every line in every file has
+	        	// a uniquely seeded random number generator       	
 	        	hash = ((FileSplit) context.getInputSplit()).getPath().getName().hashCode();
 	        	keyCode = key.get();
 	        	rand = new Random(keyCode*((long)hash));
+	        	
+
 	        	iter = Long.parseLong(value.toString());
+	        	//total number of random numbers used to sum up to 1 in all iterations
 	        	count = 0;
+	        	
 	        	
 	        	for(long i = 0; i<iter; i++){
 	        		sum = 0;
