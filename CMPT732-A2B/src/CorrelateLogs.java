@@ -114,21 +114,29 @@ public class CorrelateLogs extends Configured implements Tool {
         
 		protected void cleanup(Context context) throws IOException, InterruptedException {	
 		
-			r = (((n*Sxy)-(Sx*Sy)))/ (Math.sqrt((n*Sx2)-(Sx*Sx)) * Math.sqrt((n*Sy2)-(Sy*Sy))) ;
+			double N = (double) n;
+			double SX = (double) Sx;
+			double SY = (double) Sy;
+			double SX2 = (double) Sx2;
+			double SY2 = (double) Sy2;
+			double SXY = (double) Sxy;
+			
+			
+			r = (((N*SXY)-(SX*SY)))/ (Math.sqrt((N*SX2)-(SX*SX)) * Math.sqrt((N*SY2)-(SY*SY))) ;
 			r2 = r*r;
 			 
 			System.out.println("n = " + n);
-			context.write(new Text("n"), new DoubleWritable((double)n));
+			context.write(new Text("n"), new DoubleWritable(N));
 			System.out.println("Sx = " + Sx);
-			context.write(new Text("Sx"), new DoubleWritable((double)Sx));
+			context.write(new Text("Sx"), new DoubleWritable(SX));
 			System.out.println("Sx2 = " + Sx2);
-			context.write(new Text("Sx2"), new DoubleWritable((double)Sx2));
+			context.write(new Text("Sx2"), new DoubleWritable(SX2));
 			System.out.println("Sy = " + Sy);
-			context.write(new Text("Sy"), new DoubleWritable((double)Sy));
+			context.write(new Text("Sy"), new DoubleWritable(SY));
 			System.out.println("Sy2 = " + Sy2);
-			context.write(new Text("Sy2"), new DoubleWritable((double)Sy2));
+			context.write(new Text("Sy2"), new DoubleWritable(SY2));
 			System.out.println("Sxy = " + Sxy);
-			context.write(new Text("Sxy"), new DoubleWritable((double)Sxy));
+			context.write(new Text("Sxy"), new DoubleWritable(SXY));
 			System.out.println("r = " + r);
 			context.write(new Text("r"), new DoubleWritable(r));
 			System.out.println("r2 = " + r2);		 
