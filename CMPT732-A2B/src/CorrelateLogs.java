@@ -35,7 +35,7 @@ public class CorrelateLogs extends Configured implements Tool {
 		
 		public void map(ImmutableBytesWritable key, Result value, Context context) throws IOException, InterruptedException {
 			
-			 
+			System.out.println("Entering setup for CorrelateMapper.map()"); 
 			String hostString = Bytes.toString(CellUtil.cloneValue(value.getColumnLatestCell(
 										Bytes.toBytes("struct"),Bytes.toBytes("host"))));
 			
@@ -61,6 +61,8 @@ public class CorrelateLogs extends Configured implements Tool {
 		@Override
 		public void reduce(Text key, Iterable<LongPairWritable> values,
                            Context context) throws IOException, InterruptedException {
+			
+			System.out.println("Entering setup for CorrelateReducer.reduce()");
 	
 			long sum0 = 0;
 			long sum1 = 0;
@@ -70,7 +72,7 @@ public class CorrelateLogs extends Configured implements Tool {
 				sum0+= val.get_0();
 				sum1+= val.get_1();    
 			}
-            
+			System.out.println("(x,y) = (" + sum0 + "," + sum1 + ")");
 			x.set(sum0);
 			y.set(sum1);
 			context.write(x, y);
@@ -82,6 +84,8 @@ public class CorrelateLogs extends Configured implements Tool {
 	public static class ChainMapper
 	extends Mapper<LongWritable,LongWritable, Text, DoubleWritable> {
 		
+		long x;
+		long y;
 		long n;
 		long Sx;
 		long Sx2;
@@ -91,25 +95,26 @@ public class CorrelateLogs extends Configured implements Tool {
 		double r;
 		double r2;
 		
-		
 		protected void setup(Context context) throws IOException, InterruptedException {
 			n = Sx = Sx2 = Sy = Sy2 = Sxy = 0;
+			System.out.println("Entering setup for ChainMapper");
 		}
 		
         public void map(LongWritable key, LongWritable value, Context context
                 ) throws IOException, InterruptedException { 	
         	n++;
-        	Sx+=(key.get());
-        	Sx2+=(key.get())^2;
-        	Sy+=(value.get());
-        	Sy2+=(value.get())^2;
-        	Sxy+=(key.get()*value.get());	
+        	x = key.get();
+        	y = value.get();
+        	Sx+=x;
+        	Sx2+=(x*x);
+        	Sy+=y;
+        	Sy2+=(y*y);
+        	Sxy+=(x*y);	
 		}
         
 		protected void cleanup(Context context) throws IOException, InterruptedException {	
 		
-			r = ((double)(n*Sxy-Sx*Sy))/
-					 (Math.sqrt(n*Sx2-(Sx)^2)*Math.sqrt(n*Sy2-(Sy)^2));
+			r = (((n*Sxy)-(Sx*Sy)))/ (Math.sqrt((n*Sx2)-(Sx*Sx)) * Math.sqrt((n*Sy2)-(Sy*Sy))) ;
 			r2 = r*r;
 			 
 			System.out.println("n = " + n);

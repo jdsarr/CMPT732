@@ -15,6 +15,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
+
 public class LoadLogsMR extends Configured implements Tool {
 	
 	public static class LoadLogsReducer

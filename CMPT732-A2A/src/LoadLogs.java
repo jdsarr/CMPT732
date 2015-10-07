@@ -57,7 +57,7 @@ public class LoadLogs {
         	put.addColumn(Bytes.toBytes("struct"), Bytes.toBytes("date"), Bytes.toBytes(date));
         	put.addColumn(Bytes.toBytes("struct"), Bytes.toBytes("path"), Bytes.toBytes(path));
         	put.addColumn(Bytes.toBytes("struct"), Bytes.toBytes("bytes"), Bytes.toBytes(bytes));
- 
+
         } else {
         	//Print out "NO MATCH" if a line is not structured as expected
         	System.out.println("NO MATCH");
