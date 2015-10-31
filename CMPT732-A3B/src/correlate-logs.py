@@ -5,7 +5,7 @@ Created on Oct 20, 2015
 '''
 from pyspark import SparkConf, SparkContext
 import sys, re, math, json
-
+ 
 inputs = sys.argv[1]
 output = sys.argv[2]
 linere = re.compile("^(\\S+) - - \\[(\\S+) [+-]\\d+\\] \"[A-Z]+ (\\S+) HTTP/\\d\\.\\d\" \\d+ (\\d+)$")
