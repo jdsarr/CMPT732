@@ -1,0 +1,710 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Plotting data on a map (Example Gallery) — Basemap Matplotlib Toolkit 1.0.8 documentation</title>
+    
+    <link rel="stylesheet" href="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/default.css" type="text/css">
+    <link rel="stylesheet" href="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/pygments.css" type="text/css">
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.8',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/jquery.js"></script>
+    <script type="text/javascript" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/underscore.js"></script>
+    <script type="text/javascript" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/doctools.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml" title="Search within Basemap Matplotlib Toolkit 1.0.8 documentation" href="http://matplotlib.org/basemap/_static/opensearch.xml">
+    <link rel="top" title="Basemap Matplotlib Toolkit 1.0.8 documentation" href="http://matplotlib.org/basemap/index.html">
+    <link rel="up" title="The Matplotlib Basemap Toolkit User’s Guide" href="http://matplotlib.org/basemap/users/index.html">
+    <link rel="next" title="The Matplotlib Basemap Toolkit API" href="http://matplotlib.org/basemap/api/index.html">
+    <link rel="prev" title="Converting to and from map projection coordinates" href="http://matplotlib.org/basemap/users/mapcoords.html"> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://matplotlib.org/basemap/genindex.html" title="General Index" accesskey="I">index</a></li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/py-modindex.html" title="Python Module Index">modules</a> |</li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/api/index.html" title="The Matplotlib Basemap Toolkit API" accesskey="N">next</a> |</li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/users/mapcoords.html" title="Converting to and from map projection coordinates" accesskey="P">previous</a> |</li>
+        <li><a href="http://matplotlib.org/basemap/index.html">Basemap Matplotlib Toolkit 1.0.8 documentation</a> »</li>
+          <li><a href="http://matplotlib.org/basemap/users/index.html" accesskey="U">The Matplotlib Basemap Toolkit User’s Guide</a> »</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="plotting-data-on-a-map-example-gallery">
+<span id="examples"></span><h1>Plotting data on a map (Example Gallery)<a class="headerlink" href="#plotting-data-on-a-map-example-gallery" title="Permalink to this headline">¶</a></h1>
+<p>Following are a series of examples that illustrate how to use
+Basemap instance methods to plot your data on a map.  More examples
+are included in the examples directory of the basemap source distribution.
+There are a number of Basemap instance methods for plotting data:</p>
+<ul class="simple">
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.contour" title="mpl_toolkits.basemap.Basemap.contour"><tt class="xref py py-func docutils literal"><span class="pre">contour()</span></tt></a>: draw contour lines.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.contourf" title="mpl_toolkits.basemap.Basemap.contourf"><tt class="xref py py-func docutils literal"><span class="pre">contourf()</span></tt></a>: draw filled contours.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.imshow" title="mpl_toolkits.basemap.Basemap.imshow"><tt class="xref py py-func docutils literal"><span class="pre">imshow()</span></tt></a>: draw an image.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.pcolor" title="mpl_toolkits.basemap.Basemap.pcolor"><tt class="xref py py-func docutils literal"><span class="pre">pcolor()</span></tt></a>: draw a pseudocolor plot.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.pcolormesh" title="mpl_toolkits.basemap.Basemap.pcolormesh"><tt class="xref py py-func docutils literal"><span class="pre">pcolormesh()</span></tt></a>: draw a pseudocolor plot (faster version for regular meshes).</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.plot" title="mpl_toolkits.basemap.Basemap.plot"><tt class="xref py py-func docutils literal"><span class="pre">plot()</span></tt></a>: draw lines and/or markers.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.scatter" title="mpl_toolkits.basemap.Basemap.scatter"><tt class="xref py py-func docutils literal"><span class="pre">scatter()</span></tt></a>: draw points with markers.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.quiver" title="mpl_toolkits.basemap.Basemap.quiver"><tt class="xref py py-func docutils literal"><span class="pre">quiver()</span></tt></a>: draw vectors.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.barbs" title="mpl_toolkits.basemap.Basemap.barbs"><tt class="xref py py-func docutils literal"><span class="pre">barbs()</span></tt></a>: draw <a class="reference external" href="http://en.wikipedia.org/wiki/Station_model#Plotted_winds">wind barbs</a>.</li>
+<li><a class="reference internal" href="http://matplotlib.org/basemap/api/basemap_api.html#mpl_toolkits.basemap.Basemap.drawgreatcircle" title="mpl_toolkits.basemap.Basemap.drawgreatcircle"><tt class="xref py py-func docutils literal"><span class="pre">drawgreatcircle()</span></tt></a>: draw a <a class="reference external" href="http://en.wikipedia.org/wiki/Great_circle">great circle</a>.</li>
+</ul>
+<p>Many of these instances methods simply forward to the corresponding matplotlib
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a> instance method,
+with some extra pre/post processing and argument checking.
+You can also plot on the map directly with the matplotlib
+<a class="reference external" href="http://matplotlib.sourceforge.net/api/pyplot_api.html">pyplot</a> interface,
+or the <a class="reference external" href="http://matplotlib.sourceforge.net/examples/api/index.html">OO api</a>,
+using the <a class="reference external" href="http://matplotlib.sourceforge.net/api/axes_api.html">Axes</a> instance
+associated with the Basemap.</p>
+<p>For more specifics of how to use the Basemap instance methods,
+see <a class="reference internal" href="http://matplotlib.org/basemap/api/index.html#api-index"><em>The Matplotlib Basemap Toolkit API</em></a>.</p>
+<p>Here are the examples (many of which utilize the
+<a class="reference external" href="http://netcdf4-python.googlecode.com/">netcdf4-python</a> module
+to retrieve datasets over http):</p>
+<ul class="simple">
+<li>Plot contour lines on a basemap</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="c"># set up orthographic map projection with</span>
+<span class="c"># perspective of satellite looking down at 50N, 100W.</span>
+<span class="c"># use low resolution coastlines.</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'ortho'</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=-</span><span class="mi">100</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s">'l'</span><span class="p">)</span>
+<span class="c"># draw coastlines, country boundaries, fill continents.</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'coral'</span><span class="p">,</span><span class="n">lake_color</span><span class="o">=</span><span class="s">'aqua'</span><span class="p">)</span>
+<span class="c"># draw the edge of the map projection region (the projection limb)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s">'aqua'</span><span class="p">)</span>
+<span class="c"># draw lat/lon grid lines every 30 degrees.</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="c"># make up some data on a regular lat/lon grid.</span>
+<span class="n">nlats</span> <span class="o">=</span> <span class="mi">73</span><span class="p">;</span> <span class="n">nlons</span> <span class="o">=</span> <span class="mi">145</span><span class="p">;</span> <span class="n">delta</span> <span class="o">=</span> <span class="mf">2.</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="p">(</span><span class="n">nlons</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">-</span><span class="n">delta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">nlats</span><span class="p">,</span><span class="n">nlons</span><span class="p">))[</span><span class="mi">0</span><span class="p">,:,:])</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="p">(</span><span class="n">delta</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="n">nlats</span><span class="p">,</span><span class="n">nlons</span><span class="p">))[</span><span class="mi">1</span><span class="p">,:,:])</span>
+<span class="n">wave</span> <span class="o">=</span> <span class="mf">0.75</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">lats</span><span class="p">)</span><span class="o">**</span><span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">4.</span><span class="o">*</span><span class="n">lons</span><span class="p">))</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">lats</span><span class="p">)</span><span class="o">*</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mf">2.</span><span class="o">*</span><span class="n">lats</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">2.</span><span class="p">)</span>
+<span class="c"># compute native map projection coordinates of lat/lon grid.</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="n">lons</span><span class="o">*</span><span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">lats</span><span class="o">*</span><span class="mf">180.</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="c"># contour data over the map.</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="nb">map</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">wave</span><span class="o">+</span><span class="n">mean</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'contour lines over filled continent background'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/contour1.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/contour1.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/contour1.png">
+</div>
+<ul class="simple">
+<li>Plot precip with filled contours</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span><span class="p">,</span> <span class="n">cm</span>
+<span class="c"># requires netcdf4-python (netcdf4-python.googlecode.com)</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span> <span class="k">as</span> <span class="n">NetCDFFile</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c"># plot rainfall from NWS using special precipitation</span>
+<span class="c"># colormap used by the NWS, and included in basemap.</span>
+
+<span class="n">nc</span> <span class="o">=</span> <span class="n">NetCDFFile</span><span class="p">(</span><span class="s">'../../../examples/nws_precip_conus_20061222.nc'</span><span class="p">)</span>
+<span class="c"># data from http://water.weather.gov/precip/</span>
+<span class="n">prcpvar</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'amountofprecip'</span><span class="p">]</span>
+<span class="n">data</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">prcpvar</span><span class="p">[:]</span>
+<span class="n">latcorners</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lat'</span><span class="p">][:]</span>
+<span class="n">loncorners</span> <span class="o">=</span> <span class="o">-</span><span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lon'</span><span class="p">][:]</span>
+<span class="n">lon_0</span> <span class="o">=</span> <span class="o">-</span><span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'true_lon'</span><span class="p">]</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+<span class="n">lat_0</span> <span class="o">=</span> <span class="n">nc</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'true_lat'</span><span class="p">]</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+<span class="c"># create figure and axes instances</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># create polar stereographic Basemap instance.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'stere'</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="n">lon_0</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mf">90.</span><span class="p">,</span><span class="n">lat_ts</span><span class="o">=</span><span class="n">lat_0</span><span class="p">,</span>\
+            <span class="n">llcrnrlat</span><span class="o">=</span><span class="n">latcorners</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">urcrnrlat</span><span class="o">=</span><span class="n">latcorners</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>\
+            <span class="n">llcrnrlon</span><span class="o">=</span><span class="n">loncorners</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">urcrnrlon</span><span class="o">=</span><span class="n">loncorners</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>\
+            <span class="n">rsphere</span><span class="o">=</span><span class="mf">6371200.</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="s">'l'</span><span class="p">,</span><span class="n">area_thresh</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c"># draw coastlines, state and country boundaries, edge of map.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawstates</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">()</span>
+<span class="c"># draw parallels.</span>
+<span class="n">parallels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">parallels</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="c"># draw meridians</span>
+<span class="n">meridians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">180.</span><span class="p">,</span><span class="mf">360.</span><span class="p">,</span><span class="mf">10.</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">meridians</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ny</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span> <span class="n">nx</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">makegrid</span><span class="p">(</span><span class="n">nx</span><span class="p">,</span> <span class="n">ny</span><span class="p">)</span> <span class="c"># get lat/lons of ny by nx evenly space grid.</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span> <span class="c"># compute map proj coordinates.</span>
+<span class="c"># draw filled contours.</span>
+<span class="n">clevs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mf">7.5</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">750</span><span class="p">]</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">s3pcpn</span><span class="p">)</span>
+<span class="c"># add colorbar.</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span><span class="n">location</span><span class="o">=</span><span class="s">'bottom'</span><span class="p">,</span><span class="n">pad</span><span class="o">=</span><span class="s">"5%"</span><span class="p">)</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s">'mm'</span><span class="p">)</span>
+<span class="c"># add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">prcpvar</span><span class="o">.</span><span class="n">long_name</span><span class="o">+</span><span class="s">' for period ending '</span><span class="o">+</span><span class="n">prcpvar</span><span class="o">.</span><span class="n">dateofdata</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotprecip.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotprecip.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotprecip.png">
+</div>
+<ul class="simple">
+<li>Plot sea-level pressure weather map with labelled highs and lows</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="sd">"""</span>
+<span class="sd">plot H's and L's on a sea-level pressure map</span>
+<span class="sd">(uses scipy.ndimage.filters and netcdf4-python)</span>
+<span class="sd">"""</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span><span class="p">,</span> <span class="n">addcyclic</span>
+<span class="kn">from</span> <span class="nn">scipy.ndimage.filters</span> <span class="kn">import</span> <span class="n">minimum_filter</span><span class="p">,</span> <span class="n">maximum_filter</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="k">def</span> <span class="nf">extrema</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">'wrap'</span><span class="p">,</span><span class="n">window</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="sd">"""find the indices of local extrema (min and max)</span>
+<span class="sd">    in the input array."""</span>
+    <span class="n">mn</span> <span class="o">=</span> <span class="n">minimum_filter</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+    <span class="n">mx</span> <span class="o">=</span> <span class="n">maximum_filter</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">)</span>
+    <span class="c"># (mat == mx) true if pixel is equal to the local max</span>
+    <span class="c"># (mat == mn) true if pixel is equal to the local in</span>
+    <span class="c"># Return the indices of the maxima, minima</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">mat</span> <span class="o">==</span> <span class="n">mn</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">mat</span> <span class="o">==</span> <span class="n">mx</span><span class="p">)</span>
+
+<span class="c"># plot 00 UTC today.</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'%Y%m</span><span class="si">%d</span><span class="s">'</span><span class="p">)</span><span class="o">+</span><span class="s">'00'</span>
+
+<span class="c"># open OpenDAP dataset.</span>
+<span class="c">#data=Dataset("http://nomads.ncep.noaa.gov:9090/dods/gfs/gfs/%s/gfs_%sz_anl" %\</span>
+<span class="c">#        (date[0:8],date[8:10]))</span>
+<span class="n">data</span><span class="o">=</span><span class="n">Dataset</span><span class="p">(</span><span class="s">"http://nomads.ncep.noaa.gov:9090/dods/gfs_hd/gfs_hd</span><span class="si">%s</span><span class="s">/gfs_hd_</span><span class="si">%s</span><span class="s">z"</span><span class="o">%</span>\
+        <span class="p">(</span><span class="n">date</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">],</span><span class="n">date</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]))</span>
+
+
+
+<span class="c"># read lats,lons.</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lat'</span><span class="p">][:]</span>
+<span class="n">lons1</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lon'</span><span class="p">][:]</span>
+<span class="n">nlats</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lats</span><span class="p">)</span>
+<span class="n">nlons</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">lons1</span><span class="p">)</span>
+<span class="c"># read prmsl, convert to hPa (mb).</span>
+<span class="n">prmsl</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'prmslmsl'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="c"># the window parameter controls the number of highs and lows detected.</span>
+<span class="c"># (higher value, fewer highs and lows)</span>
+<span class="n">local_min</span><span class="p">,</span> <span class="n">local_max</span> <span class="o">=</span> <span class="n">extrema</span><span class="p">(</span><span class="n">prmsl</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s">'wrap'</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<span class="c"># create Basemap instance.</span>
+<span class="n">m</span> <span class="o">=</span>\
+<span class="n">Basemap</span><span class="p">(</span><span class="n">llcrnrlon</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">llcrnrlat</span><span class="o">=-</span><span class="mi">80</span><span class="p">,</span><span class="n">urcrnrlon</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span><span class="n">urcrnrlat</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s">'mill'</span><span class="p">)</span>
+<span class="c"># add wrap-around point in longitude.</span>
+<span class="n">prmsl</span><span class="p">,</span> <span class="n">lons</span> <span class="o">=</span> <span class="n">addcyclic</span><span class="p">(</span><span class="n">prmsl</span><span class="p">,</span> <span class="n">lons1</span><span class="p">)</span>
+<span class="c"># contour levels</span>
+<span class="n">clevs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">900</span><span class="p">,</span><span class="mf">1100.</span><span class="p">,</span><span class="mf">5.</span><span class="p">)</span>
+<span class="c"># find x,y of map projection grid.</span>
+<span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span>
+<span class="c"># create figure.</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mf">4.5</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.85</span><span class="p">])</span>
+<span class="n">cs</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">prmsl</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.25</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'0.8'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">80</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">360</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">xlows</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">local_min</span><span class="p">];</span> <span class="n">xhighs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">local_max</span><span class="p">]</span>
+<span class="n">ylows</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">local_min</span><span class="p">];</span> <span class="n">yhighs</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">local_max</span><span class="p">]</span>
+<span class="n">lowvals</span> <span class="o">=</span> <span class="n">prmsl</span><span class="p">[</span><span class="n">local_min</span><span class="p">];</span> <span class="n">highvals</span> <span class="o">=</span> <span class="n">prmsl</span><span class="p">[</span><span class="n">local_max</span><span class="p">]</span>
+<span class="c"># plot lows as blue L's, with min pressure value underneath.</span>
+<span class="n">xyplotted</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="c"># don't plot if there is already a L or H within dmin meters.</span>
+<span class="n">yoffset</span> <span class="o">=</span> <span class="mf">0.022</span><span class="o">*</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">ymax</span><span class="o">-</span><span class="n">m</span><span class="o">.</span><span class="n">ymin</span><span class="p">)</span>
+<span class="n">dmin</span> <span class="o">=</span> <span class="n">yoffset</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xlows</span><span class="p">,</span> <span class="n">ylows</span><span class="p">,</span> <span class="n">lowvals</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">.</span><span class="n">xmax</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">xmin</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">.</span><span class="n">ymax</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">ymin</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">y0</span> <span class="ow">in</span> <span class="n">xyplotted</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dist</span> <span class="ow">or</span> <span class="nb">min</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">dmin</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">'L'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s">'bold'</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">yoffset</span><span class="p">,</span><span class="nb">repr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">)),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s">'top'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">,</span>
+                    <span class="n">bbox</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">"square"</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)))</span>
+            <span class="n">xyplotted</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="c"># plot highs as red H's, with max pressure value underneath.</span>
+<span class="n">xyplotted</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xhighs</span><span class="p">,</span> <span class="n">yhighs</span><span class="p">,</span> <span class="n">highvals</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">.</span><span class="n">xmax</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">xmin</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">m</span><span class="o">.</span><span class="n">ymax</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">ymin</span><span class="p">:</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">x0</span><span class="p">,</span><span class="n">y0</span> <span class="ow">in</span> <span class="n">xyplotted</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">dist</span> <span class="ow">or</span> <span class="nb">min</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">dmin</span><span class="p">:</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s">'H'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">fontweight</span><span class="o">=</span><span class="s">'bold'</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'r'</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="n">yoffset</span><span class="p">,</span><span class="nb">repr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">)),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span>
+                    <span class="n">ha</span><span class="o">=</span><span class="s">'center'</span><span class="p">,</span><span class="n">va</span><span class="o">=</span><span class="s">'top'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'r'</span><span class="p">,</span>
+                    <span class="n">bbox</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">"square"</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s">'None'</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)))</span>
+            <span class="n">xyplotted</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Mean Sea-Level Pressure (with Highs and Lows) </span><span class="si">%s</span><span class="s">'</span> <span class="o">%</span> <span class="n">date</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plothighsandlows.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plothighsandlows.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plothighsandlows.png">
+</div>
+<ul class="simple">
+<li>Plot hurricane tracks from a shapefile</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="sd">"""</span>
+<span class="sd">draw Atlantic Hurricane Tracks for storms that reached Cat 4 or 5.</span>
+<span class="sd">part of the track for which storm is cat 4 or 5 is shown red.</span>
+<span class="sd">ESRI shapefile data from http://nationalatlas.gov/mld/huralll.html</span>
+<span class="sd">"""</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="c"># Lambert Conformal Conic map.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">llcrnrlon</span><span class="o">=-</span><span class="mf">100.</span><span class="p">,</span><span class="n">llcrnrlat</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span><span class="n">urcrnrlon</span><span class="o">=-</span><span class="mf">20.</span><span class="p">,</span><span class="n">urcrnrlat</span><span class="o">=</span><span class="mf">57.</span><span class="p">,</span>
+            <span class="n">projection</span><span class="o">=</span><span class="s">'lcc'</span><span class="p">,</span><span class="n">lat_1</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span><span class="n">lat_2</span><span class="o">=</span><span class="mf">40.</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=-</span><span class="mf">60.</span><span class="p">,</span>
+            <span class="n">resolution</span> <span class="o">=</span><span class="s">'l'</span><span class="p">,</span><span class="n">area_thresh</span><span class="o">=</span><span class="mf">1000.</span><span class="p">)</span>
+<span class="c"># read shapefile.</span>
+<span class="n">shp_info</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">readshapefile</span><span class="p">(</span><span class="s">'../../../examples/huralll020'</span><span class="p">,</span><span class="s">'hurrtracks'</span><span class="p">,</span><span class="n">drawbounds</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c"># find names of storms that reached Cat 4.</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">shapedict</span> <span class="ow">in</span> <span class="n">m</span><span class="o">.</span><span class="n">hurrtracks_info</span><span class="p">:</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">shapedict</span><span class="p">[</span><span class="s">'CATEGORY'</span><span class="p">]</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">shapedict</span><span class="p">[</span><span class="s">'NAME'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'H4'</span><span class="p">,</span><span class="s">'H5'</span><span class="p">]</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="c"># only use named storms.</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s">'NOT NAMED'</span><span class="p">:</span>  <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<span class="c"># plot tracks of those storms.</span>
+<span class="k">for</span> <span class="n">shapedict</span><span class="p">,</span><span class="n">shape</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">hurrtracks_info</span><span class="p">,</span><span class="n">m</span><span class="o">.</span><span class="n">hurrtracks</span><span class="p">):</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="n">shapedict</span><span class="p">[</span><span class="s">'NAME'</span><span class="p">]</span>
+    <span class="n">cat</span> <span class="o">=</span> <span class="n">shapedict</span><span class="p">[</span><span class="s">'CATEGORY'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+        <span class="n">xx</span><span class="p">,</span><span class="n">yy</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="p">)</span>
+        <span class="c"># show part of track where storm &gt; Cat 4 as thick red.</span>
+        <span class="k">if</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'H4'</span><span class="p">,</span><span class="s">'H5'</span><span class="p">]:</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'r'</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">cat</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'H1'</span><span class="p">,</span><span class="s">'H2'</span><span class="p">,</span><span class="s">'H3'</span><span class="p">]:</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+<span class="c"># draw coastlines, meridians and parallels.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s">'#99ffff'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'#cc9966'</span><span class="p">,</span><span class="n">lake_color</span><span class="o">=</span><span class="s">'#99ffff'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">70</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Atlantic Hurricane Tracks (Storms Reaching Category 4, 1851-2004)'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/hurrtracks.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/hurrtracks.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/hurrtracks.png">
+</div>
+<ul class="simple">
+<li>Plot etopo5 topography/bathymetry data as an image (with
+and without shading from a specified light source).</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span><span class="p">,</span> <span class="n">shiftgrid</span><span class="p">,</span> <span class="n">cm</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+
+<span class="c"># read in etopo5 topography/bathymetry.</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s">'http://ferret.pmel.noaa.gov/thredds/dodsC/data/PMEL/etopo5.nc'</span>
+<span class="n">etopodata</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">topoin</span> <span class="o">=</span> <span class="n">etopodata</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'ROSE'</span><span class="p">][:]</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">etopodata</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'ETOPO05_X'</span><span class="p">][:]</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">etopodata</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'ETOPO05_Y'</span><span class="p">][:]</span>
+<span class="c"># shift data so lons go from -180 to 180 instead of 20 to 380.</span>
+<span class="n">topoin</span><span class="p">,</span><span class="n">lons</span> <span class="o">=</span> <span class="n">shiftgrid</span><span class="p">(</span><span class="mf">180.</span><span class="p">,</span><span class="n">topoin</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># plot topography/bathymetry as an image.</span>
+
+<span class="c"># create the figure and axes instances.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># setup of basemap ('lcc' = lambert conformal conic).</span>
+<span class="c"># use major and minor sphere radii from WGS84 ellipsoid.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">llcrnrlon</span><span class="o">=-</span><span class="mf">145.5</span><span class="p">,</span><span class="n">llcrnrlat</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">urcrnrlon</span><span class="o">=-</span><span class="mf">2.566</span><span class="p">,</span><span class="n">urcrnrlat</span><span class="o">=</span><span class="mf">46.352</span><span class="p">,</span>\
+            <span class="n">rsphere</span><span class="o">=</span><span class="p">(</span><span class="mf">6378137.00</span><span class="p">,</span><span class="mf">6356752.3142</span><span class="p">),</span>\
+            <span class="n">resolution</span><span class="o">=</span><span class="s">'l'</span><span class="p">,</span><span class="n">area_thresh</span><span class="o">=</span><span class="mf">1000.</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s">'lcc'</span><span class="p">,</span>\
+            <span class="n">lat_1</span><span class="o">=</span><span class="mf">50.</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=-</span><span class="mf">107.</span><span class="p">,</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="c"># transform to nx x ny regularly spaced 5km native projection grid</span>
+<span class="n">nx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">xmax</span><span class="o">-</span><span class="n">m</span><span class="o">.</span><span class="n">xmin</span><span class="p">)</span><span class="o">/</span><span class="mf">5000.</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">ny</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">m</span><span class="o">.</span><span class="n">ymax</span><span class="o">-</span><span class="n">m</span><span class="o">.</span><span class="n">ymin</span><span class="p">)</span><span class="o">/</span><span class="mf">5000.</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<span class="n">topodat</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">transform_scalar</span><span class="p">(</span><span class="n">topoin</span><span class="p">,</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="n">nx</span><span class="p">,</span><span class="n">ny</span><span class="p">)</span>
+<span class="c"># plot image over map with imshow.</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">topodat</span><span class="p">,</span><span class="n">cm</span><span class="o">.</span><span class="n">GMT_haxby</span><span class="p">)</span>
+<span class="c"># draw coastlines and political boundaries.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawstates</span><span class="p">()</span>
+<span class="c"># draw parallels and meridians.</span>
+<span class="c"># label on left and bottom of map.</span>
+<span class="n">parallels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mf">20.</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">parallels</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">meridians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">10.</span><span class="p">,</span><span class="mf">360.</span><span class="p">,</span><span class="mf">30.</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">meridians</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c"># add colorbar</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im</span><span class="p">,</span><span class="s">"right"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s">"5%"</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s">'2%'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'ETOPO5 Topography - Lambert Conformal Conic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotetopo5.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotetopo5_00_00.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotetopo5_00_00.png">
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># make a shaded relief plot.</span>
+
+<span class="c"># create new figure, axes instance.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># attach new axes image to existing Basemap instance.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span>
+<span class="c"># create light source object.</span>
+<span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">LightSource</span>
+<span class="n">ls</span> <span class="o">=</span> <span class="n">LightSource</span><span class="p">(</span><span class="n">azdeg</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> <span class="n">altdeg</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c"># convert data to rgb array including shading from light source.</span>
+<span class="c"># (must specify color map)</span>
+<span class="n">rgb</span> <span class="o">=</span> <span class="n">ls</span><span class="o">.</span><span class="n">shade</span><span class="p">(</span><span class="n">topodat</span><span class="p">,</span> <span class="n">cm</span><span class="o">.</span><span class="n">GMT_haxby</span><span class="p">)</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
+<span class="c"># draw coastlines and political boundaries.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcountries</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawstates</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Shaded ETOPO5 Topography - Lambert Conformal Conic'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/plotetopo5_01_00.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotetopo5_01_00.png">
+</div>
+<ul class="simple">
+<li>Plot markers at locations of <a class="reference external" href="http://www.argo.ucsd.edu/">ARGO</a> floats.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">num2date</span>
+<span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">calendar</span><span class="o">,</span> <span class="nn">datetime</span><span class="o">,</span> <span class="nn">numpy</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">urllib</span><span class="o">,</span> <span class="nn">os</span>
+<span class="c"># data downloaded from the form at</span>
+<span class="c"># http://coastwatch.pfeg.noaa.gov/erddap/tabledap/apdrcArgoAll.html</span>
+<span class="n">filename</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s">'http://coastwatch.pfeg.noaa.gov/erddap/tabledap/apdrcArgoAll.nc?longitude,latitude,time&amp;longitude&gt;=0&amp;longitude&lt;=360&amp;latitude&gt;=-90&amp;latitude&lt;=90&amp;time&gt;=2010-01-01&amp;time&lt;=2010-01-08&amp;distinct()'</span><span class="p">)</span>
+<span class="n">dset</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'latitude'</span><span class="p">][:]</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'longitude'</span><span class="p">][:]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">dset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span>
+<span class="n">times</span> <span class="o">=</span> <span class="n">time</span><span class="p">[:]</span>
+<span class="n">t1</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">min</span><span class="p">();</span> <span class="n">t2</span> <span class="o">=</span> <span class="n">times</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">date1</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="n">date2</span> <span class="o">=</span> <span class="n">num2date</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="n">time</span><span class="o">.</span><span class="n">units</span><span class="p">)</span>
+<span class="n">dset</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="c"># draw map with markers for float locations</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'hammer'</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s">'#99ffff'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'#cc9966'</span><span class="p">,</span><span class="n">lake_color</span><span class="o">=</span><span class="s">'#99ffff'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">marker</span><span class="o">=</span><span class="s">'o'</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'k'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Locations of </span><span class="si">%s</span><span class="s"> ARGO floats active between </span><span class="si">%s</span><span class="s"> and </span><span class="si">%s</span><span class="s">'</span> <span class="o">%</span>\
+        <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lats</span><span class="p">),</span><span class="n">date1</span><span class="p">,</span><span class="n">date2</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotargo.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotargo.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotargo.png">
+</div>
+<ul class="simple">
+<li>Pseudo-color plot of SST and sea ice analysis.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span><span class="p">,</span> <span class="n">date2index</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2007</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="c"># date to plot.</span>
+<span class="c"># open dataset.</span>
+<span class="n">dataset</span> <span class="o">=</span> \
+<span class="n">Dataset</span><span class="p">(</span><span class="s">'http://www.ncdc.noaa.gov/thredds/dodsC/OISST-V2-AVHRR_agg'</span><span class="p">)</span>
+<span class="n">timevar</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'time'</span><span class="p">]</span>
+<span class="n">timeindex</span> <span class="o">=</span> <span class="n">date2index</span><span class="p">(</span><span class="n">date</span><span class="p">,</span><span class="n">timevar</span><span class="p">)</span> <span class="c"># find time index for desired date.</span>
+<span class="c"># read sst.  Will automatically create a masked array using</span>
+<span class="c"># missing_value variable attribute. 'squeeze out' singleton dimensions.</span>
+<span class="n">sst</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'sst'</span><span class="p">][</span><span class="n">timeindex</span><span class="p">,:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="c"># read ice.</span>
+<span class="n">ice</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'ice'</span><span class="p">][</span><span class="n">timeindex</span><span class="p">,:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="c"># read lats and lons (representing centers of grid boxes).</span>
+<span class="n">lats</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lat'</span><span class="p">][:]</span>
+<span class="n">lons</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lon'</span><span class="p">][:]</span>
+<span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">)</span>
+<span class="c"># create figure, axes instances.</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.9</span><span class="p">,</span><span class="mf">0.9</span><span class="p">])</span>
+<span class="c"># create Basemap instance.</span>
+<span class="c"># coastlines not used, so resolution set to None to skip</span>
+<span class="c"># continent processing (this speeds things up a bit)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'kav7'</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">resolution</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="c"># draw line around map projection limb.</span>
+<span class="c"># color background of map projection region.</span>
+<span class="c"># missing values over land will show up this color.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s">'0.3'</span><span class="p">)</span>
+<span class="c"># plot sst, then ice with pcolor</span>
+<span class="n">im1</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="n">sst</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s">'flat'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">,</span><span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">im2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span><span class="n">lats</span><span class="p">,</span><span class="n">ice</span><span class="p">,</span><span class="n">shading</span><span class="o">=</span><span class="s">'flat'</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">gist_gray</span><span class="p">,</span><span class="n">latlon</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># draw parallels and meridians, but don't bother labelling them.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">90.</span><span class="p">,</span><span class="mf">99.</span><span class="p">,</span><span class="mf">30.</span><span class="p">))</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">180.</span><span class="p">,</span><span class="mf">180.</span><span class="p">,</span><span class="mf">60.</span><span class="p">))</span>
+<span class="c"># add colorbar</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">im1</span><span class="p">,</span><span class="s">"bottom"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s">"5%"</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s">"2%"</span><span class="p">)</span>
+<span class="c"># add a title.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'SST and ICE analysis for </span><span class="si">%s</span><span class="s">'</span><span class="o">%</span><span class="n">date</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotsst.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotsst.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotsst.png">
+</div>
+<ul class="simple">
+<li>Plotting wind vectors and wind barbs.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span><span class="p">,</span> <span class="n">shiftgrid</span>
+<span class="kn">from</span> <span class="nn">netCDF4</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="c"># specify date to plot.</span>
+<span class="n">yyyy</span><span class="o">=</span><span class="mi">1993</span><span class="p">;</span> <span class="n">mm</span><span class="o">=</span><span class="mo">03</span><span class="p">;</span> <span class="n">dd</span><span class="o">=</span><span class="mi">14</span><span class="p">;</span> <span class="n">hh</span><span class="o">=</span><span class="mo">00</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">yyyy</span><span class="p">,</span><span class="n">mm</span><span class="p">,</span><span class="n">dd</span><span class="p">,</span><span class="n">hh</span><span class="p">)</span>
+<span class="c"># set OpenDAP server URL.</span>
+<span class="n">URLbase</span><span class="o">=</span><span class="s">"http://nomads.ncdc.noaa.gov/thredds/dodsC/modeldata/cmd_pgbh/"</span>
+<span class="n">URL</span><span class="o">=</span><span class="n">URLbase</span><span class="o">+</span><span class="s">"</span><span class="si">%04i</span><span class="s">/</span><span class="si">%04i%02i</span><span class="s">/</span><span class="si">%04i%02i%02i</span><span class="s">/pgbh00.gdas.</span><span class="si">%04i%02i%02i%02i</span><span class="s">.grb2"</span> <span class="o">%</span>\
+             <span class="p">(</span><span class="n">yyyy</span><span class="p">,</span><span class="n">yyyy</span><span class="p">,</span><span class="n">mm</span><span class="p">,</span><span class="n">yyyy</span><span class="p">,</span><span class="n">mm</span><span class="p">,</span><span class="n">dd</span><span class="p">,</span><span class="n">yyyy</span><span class="p">,</span><span class="n">mm</span><span class="p">,</span><span class="n">dd</span><span class="p">,</span><span class="n">hh</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">Dataset</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="c"># read lats,lons</span>
+<span class="c"># reverse latitudes so they go from south to north.</span>
+<span class="n">latitudes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lat'</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">longitudes</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'lon'</span><span class="p">][:]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span class="c"># get sea level pressure and 10-m wind data.</span>
+<span class="c"># mult slp by 0.01 to put in units of hPa.</span>
+<span class="n">slpin</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'Pressure_msl'</span><span class="p">][:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">uin</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'U-component_of_wind_height_above_ground'</span><span class="p">][:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="n">vin</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">variables</span><span class="p">[</span><span class="s">'V-component_of_wind_height_above_ground'</span><span class="p">][:]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+<span class="c"># add cyclic points manually (could use addcyclic function)</span>
+<span class="n">slp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">slpin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">slpin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="n">slp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">slpin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="n">slp</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">slpin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">uin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">uin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">u</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">uin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="n">u</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">uin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">vin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">vin</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">v</span><span class="p">[:,</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span> <span class="n">v</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">vin</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">longitudes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">360.</span><span class="p">);</span> <span class="n">longitudes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">longitudes</span><span class="p">)</span>
+<span class="c"># make 2-d grid of lons, lats</span>
+<span class="n">lons</span><span class="p">,</span> <span class="n">lats</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span><span class="n">latitudes</span><span class="p">)</span>
+<span class="c"># make orthographic basemap.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="s">'c'</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s">'ortho'</span><span class="p">,</span><span class="n">lat_0</span><span class="o">=</span><span class="mf">60.</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=-</span><span class="mf">60.</span><span class="p">)</span>
+<span class="c"># create figure, add axes</span>
+<span class="n">fig1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig1</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># set desired contour levels.</span>
+<span class="n">clevs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">960</span><span class="p">,</span><span class="mi">1061</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="c"># compute native x,y coordinates of grid.</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">lons</span><span class="p">,</span> <span class="n">lats</span><span class="p">)</span>
+<span class="c"># define parallels and meridians to draw.</span>
+<span class="n">parallels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">80.</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mf">20.</span><span class="p">)</span>
+<span class="n">meridians</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">360.</span><span class="p">,</span><span class="mf">20.</span><span class="p">)</span>
+<span class="c"># plot SLP contours.</span>
+<span class="n">CS1</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">slp</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span><span class="n">animated</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">CS2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">slp</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu_r</span><span class="p">,</span><span class="n">animated</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># plot wind vectors on projection grid.</span>
+<span class="c"># first, shift grid so it goes from -180 to 180 (instead of 0 to 360</span>
+<span class="c"># in longitude).  Otherwise, interpolation is messed up.</span>
+<span class="n">ugrid</span><span class="p">,</span><span class="n">newlons</span> <span class="o">=</span> <span class="n">shiftgrid</span><span class="p">(</span><span class="mf">180.</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="n">longitudes</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">vgrid</span><span class="p">,</span><span class="n">newlons</span> <span class="o">=</span> <span class="n">shiftgrid</span><span class="p">(</span><span class="mf">180.</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="n">longitudes</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="c"># transform vectors to projection grid.</span>
+<span class="n">uproj</span><span class="p">,</span><span class="n">vproj</span><span class="p">,</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span> <span class="o">=</span> \
+<span class="n">m</span><span class="o">.</span><span class="n">transform_vector</span><span class="p">(</span><span class="n">ugrid</span><span class="p">,</span><span class="n">vgrid</span><span class="p">,</span><span class="n">newlons</span><span class="p">,</span><span class="n">latitudes</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="n">returnxy</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">masked</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># now plot.</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">quiver</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">uproj</span><span class="p">,</span><span class="n">vproj</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mi">700</span><span class="p">)</span>
+<span class="c"># make quiver key.</span>
+<span class="n">qk</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">quiverkey</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s">'20 m/s'</span><span class="p">,</span> <span class="n">labelpos</span><span class="o">=</span><span class="s">'W'</span><span class="p">)</span>
+<span class="c"># draw coastlines, parallels, meridians.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">parallels</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">meridians</span><span class="p">)</span>
+<span class="c"># add colorbar</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS2</span><span class="p">,</span><span class="s">"bottom"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s">"5%"</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s">"2%"</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s">'hPa'</span><span class="p">)</span>
+<span class="c"># set plot title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'SLP and Wind Vectors '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotwindvec.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotwindvec_00_00.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotwindvec_00_00.png">
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># create 2nd figure, add axes</span>
+<span class="n">fig2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig2</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># plot SLP contours</span>
+<span class="n">CS1</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">slp</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">linewidths</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span><span class="n">animated</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">CS2</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">slp</span><span class="p">,</span><span class="n">clevs</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">RdBu_r</span><span class="p">,</span><span class="n">animated</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># plot wind barbs over map.</span>
+<span class="n">barbs</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">barbs</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="n">uproj</span><span class="p">,</span><span class="n">vproj</span><span class="p">,</span><span class="n">length</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">barbcolor</span><span class="o">=</span><span class="s">'k'</span><span class="p">,</span><span class="n">flagcolor</span><span class="o">=</span><span class="s">'r'</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="c"># draw coastlines, parallels, meridians.</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">(</span><span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">parallels</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">meridians</span><span class="p">)</span>
+<span class="c"># add colorbar</span>
+<span class="n">cb</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">CS2</span><span class="p">,</span><span class="s">"bottom"</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="s">"5%"</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="s">"2%"</span><span class="p">)</span>
+<span class="n">cb</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s">'hPa'</span><span class="p">)</span>
+<span class="c"># set plot title.</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'SLP and Wind Barbs '</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">date</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="figure">
+<img alt="../_images/plotwindvec_01_00.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotwindvec_01_00.png">
+</div>
+<ul class="simple">
+<li>Draw great circle between NY and London.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="c"># create new figure, axes instances.</span>
+<span class="n">fig</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">=</span><span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">0.8</span><span class="p">])</span>
+<span class="c"># setup mercator map projection.</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">llcrnrlon</span><span class="o">=-</span><span class="mf">100.</span><span class="p">,</span><span class="n">llcrnrlat</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span><span class="n">urcrnrlon</span><span class="o">=</span><span class="mf">20.</span><span class="p">,</span><span class="n">urcrnrlat</span><span class="o">=</span><span class="mf">60.</span><span class="p">,</span>\
+            <span class="n">rsphere</span><span class="o">=</span><span class="p">(</span><span class="mf">6378137.00</span><span class="p">,</span><span class="mf">6356752.3142</span><span class="p">),</span>\
+            <span class="n">resolution</span><span class="o">=</span><span class="s">'l'</span><span class="p">,</span><span class="n">projection</span><span class="o">=</span><span class="s">'merc'</span><span class="p">,</span>\
+            <span class="n">lat_0</span><span class="o">=</span><span class="mf">40.</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=-</span><span class="mf">20.</span><span class="p">,</span><span class="n">lat_ts</span><span class="o">=</span><span class="mf">20.</span><span class="p">)</span>
+<span class="c"># nylat, nylon are lat/lon of New York</span>
+<span class="n">nylat</span> <span class="o">=</span> <span class="mf">40.78</span><span class="p">;</span> <span class="n">nylon</span> <span class="o">=</span> <span class="o">-</span><span class="mf">73.98</span>
+<span class="c"># lonlat, lonlon are lat/lon of London.</span>
+<span class="n">lonlat</span> <span class="o">=</span> <span class="mf">51.53</span><span class="p">;</span> <span class="n">lonlon</span> <span class="o">=</span> <span class="mf">0.08</span>
+<span class="c"># draw great circle route between NY and London</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawgreatcircle</span><span class="p">(</span><span class="n">nylon</span><span class="p">,</span><span class="n">nylat</span><span class="p">,</span><span class="n">lonlon</span><span class="p">,</span><span class="n">lonlat</span><span class="p">,</span><span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">)</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="n">m</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">()</span>
+<span class="c"># draw parallels</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c"># draw meridians</span>
+<span class="n">m</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span><span class="mi">180</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">'Great Circle from New York to London'</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotgreatcircle.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotgreatcircle.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotgreatcircle.png">
+</div>
+<ul class="simple">
+<li>Draw day-night terminator on a map.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">mpl_toolkits.basemap</span> <span class="kn">import</span> <span class="n">Basemap</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="c"># miller projection</span>
+<span class="nb">map</span> <span class="o">=</span> <span class="n">Basemap</span><span class="p">(</span><span class="n">projection</span><span class="o">=</span><span class="s">'mill'</span><span class="p">,</span><span class="n">lon_0</span><span class="o">=</span><span class="mi">180</span><span class="p">)</span>
+<span class="c"># plot coastlines, draw label meridians and parallels.</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawcoastlines</span><span class="p">()</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawparallels</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span><span class="mi">90</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawmeridians</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">map</span><span class="o">.</span><span class="n">lonmin</span><span class="p">,</span><span class="nb">map</span><span class="o">.</span><span class="n">lonmax</span><span class="o">+</span><span class="mi">30</span><span class="p">,</span><span class="mi">60</span><span class="p">),</span><span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+<span class="c"># fill continents 'coral' (with zorder=0), color wet areas 'aqua'</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">drawmapboundary</span><span class="p">(</span><span class="n">fill_color</span><span class="o">=</span><span class="s">'aqua'</span><span class="p">)</span>
+<span class="nb">map</span><span class="o">.</span><span class="n">fillcontinents</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s">'coral'</span><span class="p">,</span><span class="n">lake_color</span><span class="o">=</span><span class="s">'aqua'</span><span class="p">)</span>
+<span class="c"># shade the night areas, with alpha transparency so the</span>
+<span class="c"># map shows through. Use current time in UTC.</span>
+<span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<span class="n">CS</span><span class="o">=</span><span class="nb">map</span><span class="o">.</span><span class="n">nightshade</span><span class="p">(</span><span class="n">date</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s">'Day/Night Map for </span><span class="si">%s</span><span class="s"> (UTC)'</span> <span class="o">%</span> <span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">"</span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S"</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>(<a class="reference external" href="http://matplotlib.org/basemap/users/figures/plotdaynight.py">Source code</a>)</p>
+<div class="figure">
+<img alt="../_images/plotdaynight.png" src="Plotting%20data%20on%20a%20map%20%28Example%20Gallery%29%20%E2%80%94%20Basemap%20Matplotlib%20Toolkit%201.0.8%20documentation_files/plotdaynight.png">
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="http://matplotlib.org/basemap/users/mapcoords.html" title="previous chapter">Converting to and from map projection coordinates</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="http://matplotlib.org/basemap/api/index.html" title="next chapter">The Matplotlib Basemap Toolkit API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="http://matplotlib.org/basemap/_sources/users/examples.txt" rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input name="q" type="text">
+      <input value="Go" type="submit">
+      <input name="check_keywords" value="yes" type="hidden">
+      <input name="area" value="default" type="hidden">
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="http://matplotlib.org/basemap/genindex.html" title="General Index">index</a></li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/py-modindex.html" title="Python Module Index">modules</a> |</li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/api/index.html" title="The Matplotlib Basemap Toolkit API">next</a> |</li>
+        <li class="right">
+          <a href="http://matplotlib.org/basemap/users/mapcoords.html" title="Converting to and from map projection coordinates">previous</a> |</li>
+        <li><a href="http://matplotlib.org/basemap/index.html">Basemap Matplotlib Toolkit 1.0.8 documentation</a> »</li>
+          <li><a href="http://matplotlib.org/basemap/users/index.html">The Matplotlib Basemap Toolkit User’s Guide</a> »</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        © Copyright 2011, Jeffrey Whitaker.
+      Last updated on Feb 13, 2014.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.1.
+    </div>
+  
+</body></html>

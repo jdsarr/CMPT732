@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+<title>Python multiprocessing pickling error - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Python multiprocessing pickling error">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I am sorry that I can't reproduce the error with a simpler example, and my code is too complicated to post. If I run the program in IPython shell instead of the regular python, things work out well...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error">
+    <link rel="canonical" href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error">
+
+    
+    
+    <script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/ados_002.js" async="" type="text/javascript"></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/quant.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/beacon.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/analytics.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/ados.js" async="" type="text/javascript"></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/jquery.js"></script>
+    <script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question 'Python multiprocessing pickling error'" href="http://stackoverflow.com/feeds/question/8804830">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:8804830});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '8804830');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1449081910,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"timingsGuid":"891f9c22-f571-408c-9d2e-f9f7e3bd355c","timingsInfo":"AdyxK8/2KRXwhFLWu1ZFyH4glroRn5VZA3u1Ieo1Sof/1DOCIEe4EDMqr9bRv9HH+Lt3VAlW8R+5eXjlpPIFvgtQgx3IfPFwEayuLAjZKaVZEbj6dHxYMvI13IfNjmPqRHUr08LSaFeWUEOvcaOZdJC2bufdlzQZrzaLzltZSAH5BHwYJTXYCY7Ic/QL7QTALMF4jJVCdYZEukKR/ptoU7YIj4Aaf85Ovwtl4Qf90ru5vkb35CLv7sD4NDnkY1fBPEjuyXVgu7ocSO7neZpVVWhwASdwmCoXgFpbMoNGUtHry5TOGw7GC6NP2X462VT3","user":{"fkey":"327c87fb8e908c4c554576a18f75a78e","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"3961c61ca69a","js/moderator.en.js":"97fe5aef6f7f","js/full-anon.en.js":"33499cc2cad7","js/full.en.js":"1e4fcf6f9ef0","js/wmd.en.js":"a3d548c88788","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"16f21161a721","js/help.en.js":"7be3de40c932","js/tageditor.en.js":"228dca89f504","js/tageditornew.en.js":"baf6339578c3","js/inline-tag-editing.en.js":"239de90350f6","js/revisions.en.js":"9e897f24d78d","js/review.en.js":"38c906a6db58","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"e9d59f898ee2","js/explore-qlist.en.js":"415c9ef1f829","js/events.en.js":"b6ad5fb336a6","js/keyboard-shortcuts.en.js":"8027a5b2287f","js/external-editor.en.js":"cf58cc6630ef","js/external-editor.en.js":"cf58cc6630ef","js/snippet-javascript.en.js":"1034ef6a3153","js/snippet-javascript-codemirror.en.js":"aeb2a0b12236"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/full-anon.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/snippet-javascript.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/post-validation.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/prettify-full.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/external-editor.js" async=""></script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/adFeedback.js" type="text/javascript"></script><link href="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/adFeedback.css" rel="stylesheet"><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/p.js" async=""></script><link href="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/jobs.css" rel="stylesheet" type="text/css"></head>
+<body class="question-page new-topbar">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 150 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="#" class="topbar-icon icon-achievements yes-hover js-achievements-button " data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="search" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                                                                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+                <a href="http://stackoverflow.com/users/signup?ssrc=hero&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error" id="tell-me-more" class="button">Sign up</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a community of 4.7 million programmers, 
+just like you, helping each other. Join them; it only takes a minute:
+        </div>        
+    </div>
+    <script>
+        StackExchange.ready(function() {
+            var clickSource = $("body").attr("class") + '-mini';
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+                location = 4;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox-mini #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+                });
+                $.cookie("hero", "none", { path: "/", expires: 365 });
+                var $hero = $("#herobox-mini");
+                $hero.slideUp('fast', function () { $hero.remove(); });
+                return false;
+            });
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error" class="question-hyperlink">Python multiprocessing pickling error</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="8804830" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1464883419",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1464883419"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjozMjI1MTQsImNoIjoxMTc4LCJjayI6e30sImNyIjoxMTk1NzgwLCJkaSI6ImZlMWZmY2QzOGJkZTRiNDE5OTVhNTBlZTY0MjY1YzUxIiwiZG0iOjEsImZjIjoxMjY5MTM5LCJmbCI6ODY0MjI1LCJpcCI6IjI0Ljg2LjExNC4xNiIsImt3IjoicHl0aG9uLG11bHRpcHJvY2Vzc2luZyxwaWNrbGUiLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjE2MDQsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jYSIsInN0Ijo4Mjc3LCJ1ayI6InVlMS0yOTg4YzNmMWJmYWY0NWJjYTM2YTc5ZjU5NTE0MGU5ZCIsInpuIjo0MywidHMiOjE0NDkwODE5MTA3OTEsImJmIjp0cnVlLCJwbiI6ImFkemVyazE0NjQ4ODM0MTkiLCJ1ciI6Imh0dHA6Ly9jYXJlZXJzLnN0YWNrb3ZlcmZsb3cuY29tL3Byb2R1Y3RzP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdy5jb20mdXRtX21lZGl1bT1hZCZ1dG1fY2FtcGFpZ249ZW1wbG95ZXJzLXN1cGVyaGVyb2VzJnV0bV9jb250ZW50PWxiLXN1cGVyaGVyb2VzIn0&amp;s=0TyyaxAt-h8D327JO1jOYwwwXLA" rel="nofollow" target="_blank" title=""><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/af217662e49a4cbda030feae88418cdd.png" title="" alt="" border="0" height="90" width="728"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/i_004.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="8804830" type="hidden">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">45</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>12</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I am sorry that I can't reproduce the error with a simpler example, 
+and my code is too complicated to post. If I run the program in IPython 
+shell instead of the regular python, things work out well. </p>
+
+<p>I looked up some previous notes on this problem. They were all caused
+ by using pool to call function defined within a class function. But 
+this is not the case for me. </p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="typ">Exception</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> thread </span><span class="typ">Thread</span><span class="pun">-</span><span class="lit">3</span><span class="pun">:</span><span class="pln">
+</span><span class="typ">Traceback</span><span class="pln"> </span><span class="pun">(</span><span class="pln">most recent call last</span><span class="pun">):</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib64/python2.7/threading.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">552</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> __bootstrap_inner
+    self</span><span class="pun">.</span><span class="pln">run</span><span class="pun">()</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib64/python2.7/threading.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">505</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> run
+    self</span><span class="pun">.</span><span class="pln">__target</span><span class="pun">(*</span><span class="pln">self</span><span class="pun">.</span><span class="pln">__args</span><span class="pun">,</span><span class="pln"> </span><span class="pun">**</span><span class="pln">self</span><span class="pun">.</span><span class="pln">__kwargs</span><span class="pun">)</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib64/python2.7/multiprocessing/pool.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">313</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> _handle_tasks
+    put</span><span class="pun">(</span><span class="pln">task</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">PicklingError</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Can</span><span class="str">'t pickle &lt;type '</span><span class="pln">function</span><span class="str">'&gt;: attribute lookup __builtin__.function failed</span></code></pre>
+
+<p>I would appreciate any help. </p>
+
+<p>UPDATE: The function I pickle is defined at the top level of the 
+module. Though it calls a function that contains a nested function. i.e,
+ f() calls g() calls h() which has a nested function i(), and I am 
+calling pool.apply_async(f). f(), g(), h() are all defined at the top 
+level. I tried simpler example with this pattern and it works though.</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag js-gps-track" title="show questions tagged 'python'" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/multiprocessing" class="post-tag js-gps-track" title="show questions tagged 'multiprocessing'" rel="tag">multiprocessing</a> <a href="http://stackoverflow.com/questions/tagged/pickle" class="post-tag js-gps-track" title="show questions tagged 'pickle'" rel="tag">pickle</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/8804830" title="short permalink to this question" class="short-link" id="link-post-8804830">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8804830/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8804830/revisions" title="show all edits to this post">edited <span title="2012-01-10 15:04:18Z" class="relativetime">Jan 10 '12 at 15:04</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-01-10 14:28:25Z" class="relativetime">Jan 10 '12 at 14:28</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/509205/codenoob"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/56b51de2018a4f7a02b708ff941936c0.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/509205/codenoob">CodeNoob</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,558</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="32 silver badges"><span class="badge2"></span><span class="badgecount">32</span></span><span title="70 bronze badges"><span class="badge3"></span><span class="badgecount">70</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8804830" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-51832791" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The top-level / accepted 
+answer is good, but it could mean you need to re-structure your code, 
+which might be painful. I would recommend for anyone who has this issue 
+to also read the additional answers utilising <code>dill</code> and <code>pathos</code>.
+ However, I no luck with any of the solutions when working with 
+vtkobjects :( Anyone has managed to run python code in parallel 
+processing vtkPolyData?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/454063/chris" title="1086 reputation" class="comment-user">Chris</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment51832791_8804830"><span title="2015-08-12 10:34:12Z" class="relativetime-clean">Aug 12 at 10:34</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8804830" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								6 Answers
+                                <span style="display:none;" itemprop="answerCount">6</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="8805244"></a>
+<div id="answer-8805244" class="answer accepted-answer" data-answerid="8805244" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="8805244" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">55</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Here is a <a href="http://docs.python.org/library/pickle.html#what-can-be-pickled-and-unpickled">list of what can be pickled</a>. In particular, functions are only picklable if they are defined at the top-level of a module.</p>
+
+<p>This piece of code:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> multiprocessing </span><span class="kwd">as</span><span class="pln"> mp
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">():</span><span class="pln">
+    </span><span class="lit">@staticmethod</span><span class="pln">
+    </span><span class="kwd">def</span><span class="pln"> work</span><span class="pun">(</span><span class="pln">self</span><span class="pun">):</span><span class="pln">
+        </span><span class="kwd">pass</span><span class="pln">
+
+pool </span><span class="pun">=</span><span class="pln"> mp</span><span class="pun">.</span><span class="typ">Pool</span><span class="pun">()</span><span class="pln">
+foo </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">()</span><span class="pln">
+pool</span><span class="pun">.</span><span class="pln">apply_async</span><span class="pun">(</span><span class="pln">foo</span><span class="pun">.</span><span class="pln">work</span><span class="pun">)</span><span class="pln">
+pool</span><span class="pun">.</span><span class="pln">close</span><span class="pun">()</span><span class="pln">
+pool</span><span class="pun">.</span><span class="pln">join</span><span class="pun">()</span></code></pre>
+
+<p>yields an error almost identical to the one you posted:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="typ">Exception</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> thread </span><span class="typ">Thread</span><span class="pun">-</span><span class="lit">2</span><span class="pun">:</span><span class="pln">
+</span><span class="typ">Traceback</span><span class="pln"> </span><span class="pun">(</span><span class="pln">most recent call last</span><span class="pun">):</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib/python2.7/threading.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">552</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> __bootstrap_inner
+    self</span><span class="pun">.</span><span class="pln">run</span><span class="pun">()</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib/python2.7/threading.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">505</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> run
+    self</span><span class="pun">.</span><span class="pln">__target</span><span class="pun">(*</span><span class="pln">self</span><span class="pun">.</span><span class="pln">__args</span><span class="pun">,</span><span class="pln"> </span><span class="pun">**</span><span class="pln">self</span><span class="pun">.</span><span class="pln">__kwargs</span><span class="pun">)</span><span class="pln">
+  </span><span class="typ">File</span><span class="pln"> </span><span class="str">"/usr/lib/python2.7/multiprocessing/pool.py"</span><span class="pun">,</span><span class="pln"> line </span><span class="lit">315</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> _handle_tasks
+    put</span><span class="pun">(</span><span class="pln">task</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">PicklingError</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Can</span><span class="str">'t pickle &lt;type '</span><span class="pln">function</span><span class="str">'&gt;: attribute lookup __builtin__.function failed</span></code></pre>
+
+<p>The problem is that the <code>pool</code> methods all use a <code>queue.Queue</code> to pass tasks to the worker processes. Everything that goes through the <code>queue.Queue</code> must be pickable, and <code>foo.work</code> is not picklable since it is not defined at the top level of the module.</p>
+
+<p>It can be fixed by defining a function at the top level, which calls <code>foo.work()</code>:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">def</span><span class="pln"> work</span><span class="pun">(</span><span class="pln">foo</span><span class="pun">):</span><span class="pln">
+    foo</span><span class="pun">.</span><span class="pln">work</span><span class="pun">()</span><span class="pln">
+
+pool</span><span class="pun">.</span><span class="pln">apply_async</span><span class="pun">(</span><span class="pln">work</span><span class="pun">,</span><span class="pln">args</span><span class="pun">=(</span><span class="pln">foo</span><span class="pun">,))</span></code></pre>
+
+<p>Notice that <code>foo</code> is pickable, since <code>Foo</code> is defined at the top level and  <code>foo.__dict__</code> is picklable.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/8805244" title="short permalink to this answer" class="short-link" id="link-post-8805244">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/8805244/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/8805244/revisions" title="show all edits to this post">edited <span title="2012-01-10 14:59:34Z" class="relativetime">Jan 10 '12 at 14:59</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-01-10 14:54:13Z" class="relativetime">Jan 10 '12 at 14:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/190597/unutbu"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/dd069899166bba0f0e53d3097452b00b.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/190597/unutbu">unutbu</a><br>
+        <span class="reputation-score" title="reputation score 318135" dir="ltr">318k</span><span title="33 gold badges"><span class="badge1"></span><span class="badgecount">33</span></span><span title="532 silver badges"><span class="badge2"></span><span class="badgecount">532</span></span><span title="674 bronze badges"><span class="badge3"></span><span class="badgecount">674</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-8805244" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-10986688" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks for your reply. I updated my question. I don't htink that's the cause, though</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/509205/codenoob" title="2558 reputation" class="comment-user owner">CodeNoob</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment10986688_8805244"><span title="2012-01-10 15:04:43Z" class="relativetime-clean">Jan 10 '12 at 15:04</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-10987969" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">3</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">To get a PicklingError 
+something must be put on the Queue which is not picklable. It could be 
+the function or its arguments. To find out more about the problem, I 
+suggest make a copy of your program, and start paring it down, making it
+ simpler and simpler, each time re-running the program to see if the 
+problem remains. When it becomes really simple, you'll either have 
+discovered the problem yourself, or will have something which you can 
+post here.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/190597/unutbu" title="318135 reputation" class="comment-user">unutbu</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment10987969_8805244"><span title="2012-01-10 15:56:31Z" class="relativetime-clean">Jan 10 '12 at 15:56</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-22901797" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Also: if you define a 
+function at the top-level of a module, but it's decorated, then the 
+reference will be to the output of the decorator, and you'll get this 
+error anyway.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/65846/bobpoekert" title="378 reputation" class="comment-user">bobpoekert</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment22901797_8805244"><span title="2013-04-17 00:35:18Z" class="relativetime-clean">Apr 17 '13 at 0:35</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-8805244" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1914935156",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1914935156"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjozMjI1MTQsImNoIjoxMTc4LCJjayI6e30sImNyIjoxMTk1OTc2LCJkaSI6ImU1NTMxMDc5ZjE3OTQ2NDliNjViZDc0OTAwZjIzYzFmIiwiZG0iOjEsImZjIjoxMjY5MzM0LCJmbCI6ODY0MjI2LCJpcCI6IjI0Ljg2LjExNC4xNiIsImt3IjoicHl0aG9uLG11bHRpcHJvY2Vzc2luZyxwaWNrbGUiLCJudyI6MjIsInBjIjowLCJlYyI6MCwicHIiOjE1NjgsInJ0IjoxLCJyZiI6Imh0dHBzOi8vd3d3Lmdvb2dsZS5jYSIsInN0Ijo4Mjc3LCJ1ayI6InVlMS0yOTg4YzNmMWJmYWY0NWJjYTM2YTc5ZjU5NTE0MGU5ZCIsInpuIjo0NCwidHMiOjE0NDkwODE5MTA3OTQsImJmIjp0cnVlLCJwbiI6ImFkemVyazE5MTQ5MzUxNTYiLCJ1ciI6Imh0dHA6Ly9jYXJlZXJzLnN0YWNrb3ZlcmZsb3cuY29tL3doeS1zdGFjaz91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtYWRkLWN2JnV0bV9jb250ZW50PWxiLWNhcmVlcnMtbGlua2VkaW4ifQ&amp;s=74t9ej2e7cQJ1tEH3kguUjLTol4" rel="nofollow" target="_blank" title=""><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/1ab6a59064ba479dad202b0c24205d96.png" title="" alt="" border="0" height="90" width="728"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/i_002.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>
+  
+<a name="21345423"></a>
+<div id="answer-21345423" class="answer" data-answerid="21345423" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="21345423" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">8</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I'd use <code>pathos.multiprocesssing</code>, instead of <code>multiprocessing</code>.  <code>pathos.multiprocessing</code> is a fork of <code>multiprocessing</code> that uses <code>dill</code>. <code>dill</code> can serialize almost anything in python, so you are able to send a lot more around in parallel.  The <code>pathos</code> fork also has the ability to work directly with multiple argument functions, as you need for class methods.</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="kwd">from</span><span class="pln"> pathos</span><span class="pun">.</span><span class="pln">multiprocessing </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">ProcessingPool</span><span class="pln"> </span><span class="kwd">as</span><span class="pln"> </span><span class="typ">Pool</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> p </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Pool</span><span class="pun">(</span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Test</span><span class="pun">(</span><span class="pln">object</span><span class="pun">):</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">   </span><span class="kwd">def</span><span class="pln"> plus</span><span class="pun">(</span><span class="pln">self</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">):</span><span class="pln"> 
+</span><span class="pun">...</span><span class="pln">     </span><span class="kwd">return</span><span class="pln"> x</span><span class="pun">+</span><span class="pln">y
+</span><span class="pun">...</span><span class="pln"> 
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> t </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Test</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> p</span><span class="pun">.</span><span class="pln">map</span><span class="pun">(</span><span class="pln">t</span><span class="pun">.</span><span class="pln">plus</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">[</span><span class="lit">4</span><span class="pun">,</span><span class="pln"> </span><span class="lit">6</span><span class="pun">,</span><span class="pln"> </span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">]</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> 
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">(</span><span class="pln">object</span><span class="pun">):</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">   </span><span class="lit">@staticmethod</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">   </span><span class="kwd">def</span><span class="pln"> work</span><span class="pun">(</span><span class="pln">self</span><span class="pun">,</span><span class="pln"> x</span><span class="pun">):</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">     </span><span class="kwd">return</span><span class="pln"> x</span><span class="pun">+</span><span class="lit">1</span><span class="pln">
+</span><span class="pun">...</span><span class="pln"> 
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> f </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Foo</span><span class="pun">()</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> p</span><span class="pun">.</span><span class="pln">apipe</span><span class="pun">(</span><span class="pln">f</span><span class="pun">.</span><span class="pln">work</span><span class="pun">,</span><span class="pln"> f</span><span class="pun">,</span><span class="pln"> </span><span class="lit">100</span><span class="pun">)</span><span class="pln">
+</span><span class="pun">&lt;</span><span class="pln">processing</span><span class="pun">.</span><span class="pln">pool</span><span class="pun">.</span><span class="typ">ApplyResult</span><span class="pln"> object at </span><span class="lit">0x10504f8d0</span><span class="pun">&gt;</span><span class="pln">
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> res </span><span class="pun">=</span><span class="pln"> _
+</span><span class="pun">&gt;&gt;&gt;</span><span class="pln"> res</span><span class="pun">.</span><span class="pln">get</span><span class="pun">()</span><span class="pln">
+</span><span class="lit">101</span></code></pre>
+
+<p>Get <code>pathos</code> (and if you like, <code>dill</code>) here:
+ <a href="https://github.com/uqfoundation">https://github.com/uqfoundation</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/21345423" title="short permalink to this answer" class="short-link" id="link-post-21345423">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/21345423/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/21345423/revisions" title="show all edits to this post">edited <span title="2014-10-02 16:58:59Z" class="relativetime">Oct 2 '14 at 16:58</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-01-25 01:34:08Z" class="relativetime">Jan 25 '14 at 1:34</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2379433/mike-mckerns"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/197d2417f199b0b6f951ee62e627a1d8.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2379433/mike-mckerns">Mike McKerns</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,278</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="19 silver badges"><span class="badge2"></span><span class="badgecount">19</span></span><span title="41 bronze badges"><span class="badge3"></span><span class="badgecount">41</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-21345423" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-46858560" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">worked a treat. For anyone else, I installed both libraries through:  <code>sudo pip install git+https://github.com/uqfoundation/dill.git@master</code> and <code>sudo pip install git+https://github.com/uqfoundation/pathos.git@master</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4013571/alexander-mcfarlane" title="1529 reputation" class="comment-user">Alexander McFarlane</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment46858560_21345423"><span title="2015-03-29 21:20:40Z" class="relativetime-clean">Mar 29 at 21:20</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 3 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-51831476" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@AlexanderMcFarlane I wouldn't install python packages with <code>sudo</code> (from external sources such as github especially). Instead, I would recommend to run: <code>pip install --user git+...</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/454063/chris" title="1086 reputation" class="comment-user">Chris</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment51831476_21345423"><span title="2015-08-12 10:00:53Z" class="relativetime-clean">Aug 12 at 10:00</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-21345423" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="13151257"></a>
+<div id="answer-13151257" class="answer" data-answerid="13151257" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="13151257" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">6</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I have found that I can also generate exactly that error output on a 
+perfectly working piece of code by attempting to use the profiler on it.</p>
+
+<p>Note that this was on Windows (where the forking is a bit less elegant).</p>
+
+<p>I was running:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="pln">python </span><span class="pun">-</span><span class="pln">m profile </span><span class="pun">-</span><span class="pln">o output</span><span class="pun">.</span><span class="pln">pstats </span><span class="pun">&lt;</span><span class="pln">script</span><span class="pun">&gt;</span><span class="pln"> </span></code></pre>
+
+<p>And found that removing the profiling removed the error and placing 
+the profiling restored it. Was driving me batty too because I knew the 
+code used to work. I was checking to see if something had updated 
+pool.py... then had a sinking feeling and eliminated the profiling and 
+that was it.</p>
+
+<p>Posting here for the archives in case anybody else runs into it.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/13151257" title="short permalink to this answer" class="short-link" id="link-post-13151257">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/13151257/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/13151257/revisions" title="show all edits to this post">edited <span title="2013-12-25 06:33:39Z" class="relativetime">Dec 25 '13 at 6:33</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-10-31 04:25:05Z" class="relativetime">Oct 31 '12 at 4:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1373804/ezekiel-kruglick"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/VLDeu.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1373804/ezekiel-kruglick">Ezekiel Kruglick</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">1,121</span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="18 bronze badges"><span class="badge3"></span><span class="badgecount">18</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-13151257" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-31119943" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This was my issue too, thanks!</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/369977/pr0ps" title="656 reputation" class="comment-user">pR0Ps</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment31119943_13151257"><span title="2013-12-24 17:08:31Z" class="relativetime-clean">Dec 24 '13 at 17:08</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-13151257" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="24673524"></a>
+<div id="answer-24673524" class="answer" data-answerid="24673524" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="24673524" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>As others have said <code>multiprocessing</code> can only transfer 
+Python objects to worker processes which can be pickled. If you cannot 
+reorganize your code as described by unutbu, you can use <code>dill</code>s extended pickling/unpickling capabilities for transferring data (especially code data) as I show below.</p>
+
+<p>This solution requires only the installation of <code>dill</code> and no other libraries as <code>pathos</code>:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> os
+</span><span class="kwd">from</span><span class="pln"> multiprocessing </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Pool</span><span class="pln">
+
+</span><span class="kwd">import</span><span class="pln"> dill
+
+</span><span class="kwd">def</span><span class="pln"> run_dill_encoded</span><span class="pun">(</span><span class="pln">what</span><span class="pun">):</span><span class="pln">
+    fun</span><span class="pun">,</span><span class="pln"> args </span><span class="pun">=</span><span class="pln"> dill</span><span class="pun">.</span><span class="pln">loads</span><span class="pun">(</span><span class="pln">what</span><span class="pun">)</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> fun</span><span class="pun">(*</span><span class="pln">args</span><span class="pun">)</span><span class="pln">
+
+</span><span class="kwd">def</span><span class="pln"> apply_async</span><span class="pun">(</span><span class="pln">pool</span><span class="pun">,</span><span class="pln"> fun</span><span class="pun">,</span><span class="pln"> args</span><span class="pun">):</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> pool</span><span class="pun">.</span><span class="pln">apply_async</span><span class="pun">(</span><span class="pln">run_dill_encoded</span><span class="pun">,</span><span class="pln"> </span><span class="pun">(</span><span class="pln">dill</span><span class="pun">.</span><span class="pln">dumps</span><span class="pun">((</span><span class="pln">fun</span><span class="pun">,</span><span class="pln"> args</span><span class="pun">)),))</span><span class="pln">
+
+</span><span class="kwd">if</span><span class="pln"> __name__ </span><span class="pun">==</span><span class="pln"> </span><span class="str">"__main__"</span><span class="pun">:</span><span class="pln">
+
+    pool </span><span class="pun">=</span><span class="pln"> </span><span class="typ">Pool</span><span class="pun">(</span><span class="pln">processes</span><span class="pun">=</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="com"># asyn execution of lambda</span><span class="pln">
+    jobs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">10</span><span class="pun">):</span><span class="pln">
+        job </span><span class="pun">=</span><span class="pln"> apply_async</span><span class="pun">(</span><span class="pln">pool</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">lambda</span><span class="pln"> a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">:</span><span class="pln"> </span><span class="pun">(</span><span class="pln">a</span><span class="pun">,</span><span class="pln"> b</span><span class="pun">,</span><span class="pln"> a </span><span class="pun">*</span><span class="pln"> b</span><span class="pun">),</span><span class="pln"> </span><span class="pun">(</span><span class="pln">i</span><span class="pun">,</span><span class="pln"> i </span><span class="pun">+</span><span class="pln"> </span><span class="lit">1</span><span class="pun">))</span><span class="pln">
+        jobs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">job</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="kwd">for</span><span class="pln"> job </span><span class="kwd">in</span><span class="pln"> jobs</span><span class="pun">:</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pln"> job</span><span class="pun">.</span><span class="pln">get</span><span class="pun">()</span><span class="pln">
+    </span><span class="kwd">print</span><span class="pln">
+
+    </span><span class="com"># async execution of static method</span><span class="pln">
+
+    </span><span class="kwd">class</span><span class="pln"> O</span><span class="pun">(</span><span class="pln">object</span><span class="pun">):</span><span class="pln">
+
+        </span><span class="lit">@staticmethod</span><span class="pln">
+        </span><span class="kwd">def</span><span class="pln"> calc</span><span class="pun">():</span><span class="pln">
+            </span><span class="kwd">return</span><span class="pln"> os</span><span class="pun">.</span><span class="pln">getpid</span><span class="pun">()</span><span class="pln">
+
+    jobs </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[]</span><span class="pln">
+    </span><span class="kwd">for</span><span class="pln"> i </span><span class="kwd">in</span><span class="pln"> range</span><span class="pun">(</span><span class="lit">10</span><span class="pun">):</span><span class="pln">
+        job </span><span class="pun">=</span><span class="pln"> apply_async</span><span class="pun">(</span><span class="pln">pool</span><span class="pun">,</span><span class="pln"> O</span><span class="pun">.</span><span class="pln">calc</span><span class="pun">,</span><span class="pln"> </span><span class="pun">())</span><span class="pln">
+        jobs</span><span class="pun">.</span><span class="pln">append</span><span class="pun">(</span><span class="pln">job</span><span class="pun">)</span><span class="pln">
+
+    </span><span class="kwd">for</span><span class="pln"> job </span><span class="kwd">in</span><span class="pln"> jobs</span><span class="pun">:</span><span class="pln">
+        </span><span class="kwd">print</span><span class="pln"> job</span><span class="pun">.</span><span class="pln">get</span><span class="pun">()</span></code></pre>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/24673524" title="short permalink to this answer" class="short-link" id="link-post-24673524">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/24673524/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/24673524/revisions" title="show all edits to this post">edited <span title="2014-07-27 15:07:27Z" class="relativetime">Jul 27 '14 at 15:07</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/350713/faheem-mitha"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/2b37134235e21817f74cd8c47eb0538d.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/350713/faheem-mitha">Faheem Mitha</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">2,249</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="20 silver badges"><span class="badge2"></span><span class="badgecount">20</span></span><span title="46 bronze badges"><span class="badge3"></span><span class="badgecount">46</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2014-07-10 09:56:14Z" class="relativetime">Jul 10 '14 at 9:56</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/233813/rocksportrocker"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/a863451740595ac1511c5b43120fbaa5.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/233813/rocksportrocker">rocksportrocker</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">3,488</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="10 silver badges"><span class="badge2"></span><span class="badgecount">10</span></span><span title="26 bronze badges"><span class="badge3"></span><span class="badgecount">26</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-24673524" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-41020945" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I'm the <code>dill</code> and <code>pathos</code> author… and while you are right, isn't it so much nicer and cleaner and more flexible to also use <code>pathos</code> as in my answer?  Or maybe I'm a little biased…</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2379433/mike-mckerns" title="5278 reputation" class="comment-user">Mike McKerns</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment41020945_24673524"><span title="2014-10-02 16:38:38Z" class="relativetime-clean">Oct 2 '14 at 16:38</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-41105963" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I was not aware about the status of <code>pathos</code>
+ at the time of writing and wanted to present a solution which is very 
+near to the answer. Now that I've seen your solution I agree that this 
+is the way to go.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/233813/rocksportrocker" title="3488 reputation" class="comment-user">rocksportrocker</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment41105963_24673524"><span title="2014-10-06 07:31:10Z" class="relativetime-clean">Oct 6 '14 at 7:31</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-41112484" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I read your solution and was like, <code>Doh… I didn't even think of doing it like that.</code>  So that was kinda cool.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2379433/mike-mckerns" title="5278 reputation" class="comment-user">Mike McKerns</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment41112484_24673524"><span title="2014-10-06 11:36:59Z" class="relativetime-clean">Oct 6 '14 at 11:36</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-44185884" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">2</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks for posting, I used this approach for dilling/undilling arguments that could not be pickled: <a href="http://stackoverflow.com/questions/27883574/cant-pickle-pyparsing-expression-with-setparseaction-method-needed-for-multi/27892382#27892382" title="cant pickle pyparsing expression with setparseaction method needed for multi">stackoverflow.com/questions/27883574/…</a></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/2128461/jazzblue" title="483 reputation" class="comment-user">jazzblue</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment44185884_24673524"><span title="2015-01-11 21:37:02Z" class="relativetime-clean">Jan 11 at 21:37</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-24673524" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="10643483"></a>
+<div id="answer-10643483" class="answer" data-answerid="10643483" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="10643483" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Are you passing a numpy array of strings by any chance?</p>
+
+<p>I've had this same exact error when I pass an array that happens to contain an empty string. I think it may be due to this bug:
+<a href="http://projects.scipy.org/numpy/ticket/1658" rel="nofollow">http://projects.scipy.org/numpy/ticket/1658</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/10643483" title="short permalink to this answer" class="short-link" id="link-post-10643483">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/10643483/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-05-17 21:02:59Z" class="relativetime">May 17 '12 at 21:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/101923/tim-swast"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/a5fc3b6ac9d9f43c128d1f0263e850c3.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/101923/tim-swast">Tim Swast</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,212</span><span title="2 gold badges"><span class="badge1"></span><span class="badgecount">2</span></span><span title="15 silver badges"><span class="badge2"></span><span class="badgecount">15</span></span><span title="21 bronze badges"><span class="badge3"></span><span class="badgecount">21</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-10643483" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-10643483" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="32807763"></a>
+<div id="answer-32807763" class="answer" data-answerid="32807763" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input name="_id_" value="32807763" type="hidden">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<blockquote>
+  <p>This solution requires only the installation of dill and no other libraries as pathos</p>
+</blockquote>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">def</span><span class="pln"> apply_packed_function_for_map</span><span class="pun">((</span><span class="pln">dumped_function</span><span class="pun">,</span><span class="pln"> item</span><span class="pun">,</span><span class="pln"> args</span><span class="pun">,</span><span class="pln"> kwargs</span><span class="pun">),):</span><span class="pln">
+    </span><span class="str">"""
+    Unpack dumped function as target function and call it with arguments.
+
+    :param (dumped_function, item, args, kwargs):
+        a tuple of dumped function and its arguments
+    :return:
+        result of target function
+    """</span><span class="pln">
+    target_function </span><span class="pun">=</span><span class="pln"> dill</span><span class="pun">.</span><span class="pln">loads</span><span class="pun">(</span><span class="pln">dumped_function</span><span class="pun">)</span><span class="pln">
+    res </span><span class="pun">=</span><span class="pln"> target_function</span><span class="pun">(</span><span class="pln">item</span><span class="pun">,</span><span class="pln"> </span><span class="pun">*</span><span class="pln">args</span><span class="pun">,</span><span class="pln"> </span><span class="pun">**</span><span class="pln">kwargs</span><span class="pun">)</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> res
+
+
+</span><span class="kwd">def</span><span class="pln"> pack_function_for_map</span><span class="pun">(</span><span class="pln">target_function</span><span class="pun">,</span><span class="pln"> items</span><span class="pun">,</span><span class="pln"> </span><span class="pun">*</span><span class="pln">args</span><span class="pun">,</span><span class="pln"> </span><span class="pun">**</span><span class="pln">kwargs</span><span class="pun">):</span><span class="pln">
+    </span><span class="str">"""
+    Pack function and arguments to object that can be sent from one
+    multiprocessing.Process to another. The main problem is:
+        «multiprocessing.Pool.map*» or «apply*»
+        cannot use class methods or closures.
+    It solves this problem with «dill».
+    It works with target function as argument, dumps it («with dill»)
+    and returns dumped function with arguments of target function.
+    For more performance we dump only target function itself
+    and don't dump its arguments.
+    How to use (pseudo-code):
+
+        ~&gt;&gt;&gt; import multiprocessing
+        ~&gt;&gt;&gt; images = [...]
+        ~&gt;&gt;&gt; pool = multiprocessing.Pool(100500)
+        ~&gt;&gt;&gt; features = pool.map(
+        ~...     *pack_function_for_map(
+        ~...         super(Extractor, self).extract_features,
+        ~...         images,
+        ~...         type='png'
+        ~...         **options,
+        ~...     )
+        ~... )
+        ~&gt;&gt;&gt;
+
+    :param target_function:
+        function, that you want to execute like  target_function(item, *args, **kwargs).
+    :param items:
+        list of items for map
+    :param args:
+        positional arguments for target_function(item, *args, **kwargs)
+    :param kwargs:
+        named arguments for target_function(item, *args, **kwargs)
+    :return: tuple(function_wrapper, dumped_items)
+        It returs a tuple with
+            * function wrapper, that unpack and call target function;
+            * list of packed target function and its' arguments.
+    """</span><span class="pln">
+    dumped_function </span><span class="pun">=</span><span class="pln"> dill</span><span class="pun">.</span><span class="pln">dumps</span><span class="pun">(</span><span class="pln">target_function</span><span class="pun">)</span><span class="pln">
+    dumped_items </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[(</span><span class="pln">dumped_function</span><span class="pun">,</span><span class="pln"> item</span><span class="pun">,</span><span class="pln"> args</span><span class="pun">,</span><span class="pln"> kwargs</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> item </span><span class="kwd">in</span><span class="pln"> items</span><span class="pun">]</span><span class="pln">
+    </span><span class="kwd">return</span><span class="pln"> apply_packed_function_for_map</span><span class="pun">,</span><span class="pln"> dumped_items</span></code></pre>
+
+<p>It also works for numpy arrays.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/32807763" title="short permalink to this answer" class="short-link" id="link-post-32807763">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/32807763/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/32807763/revisions" title="show all edits to this post">edited <span title="2015-09-27 12:22:05Z" class="relativetime">Sep 27 at 12:22</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-09-27 12:13:20Z" class="relativetime">Sep 27 at 12:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2586820/%d0%98%d0%bb%d1%8c%d1%8f-%d0%9d%d0%b8%d0%ba%d0%b8%d1%82%d0%b8%d0%bd"><div class="gravatar-wrapper-32"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/picture.jpeg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2586820/%d0%98%d0%bb%d1%8c%d1%8f-%d0%9d%d0%b8%d0%ba%d0%b8%d1%82%d0%b8%d0%bd">Илья Никитин</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">11</span><span title="2 bronze badges"><span class="badge3"></span><span class="badgecount">2</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-32807763" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-32807763" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/8804830/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="8804830" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="https://www.google.ca" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="327c87fb8e908c4c554576a18f75a78e" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&amp;returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" placeholder="required, but never shown" type="email">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f8804830%2fpython-multiprocessing-pickling-error%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" />
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/multiprocessing" class="post-tag" title="show questions tagged 'multiprocessing'" rel="tag">multiprocessing</a> <a href="http://stackoverflow.com/questions/tagged/pickle" class="post-tag" title="show questions tagged 'pickle'" rel="tag">pickle</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-01-10 14:28:25Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>29253 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/8804830/python-multiprocessing-pickling-error?lastactivity" class="lastactivity-link" title="2015-09-27 12:22:05Z">2 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1280810586",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1280810586"><div id="beta-ad-container" style="height: 250px; width: 220px;">
+<style type="text/css">
+#beta-ad { width: 220px; height: 250px; text-align: center; color: #326ab3; border-top: 1px solid #b4cfea; overflow: hidden; font-family: Helvetica, Arial, sans-serif !important; }
+#beta-ad a, #beta-ad a:visited, #beta-ad a:active { text-decoration: none; color: #326ab3; }
+#beta-ad { background: url(//sstatic.net/stackexchange/Img/beta-ad-bg.jpg) no-repeat bottom center; }
+#beta-ad-inner { height: 190px; padding: 0px 10px 20px 10px; width: 200px; overflow: hidden; }
+#beta-ad-top a { height: 22px; padding: 7px 0; font-size: 15px; line-height: 22px; display: block; color: #FFF !important; font-family: Helvetica, Arial, sans-serif !important; }
+#beta-ad-mid { height: 178px; display:table-cell; vertical-align: middle; }
+#beta-ad-mid #beta-ad-que, #beta-ad-mid #beta-ad-que:visited, #beta-ad-mid #beta-ad-que:active { font-size: 19px; line-height: 25px; font-weight: bold; color: #3a6da6; text-shadow: 0 1px 0 #fff; }
+#beta-ad-own { float: right; margin-top: 5px; font-size: 15px; line-height: 15px; }
+#beta-ad-own a { height: 20px; }
+#beta-ad-bot { height: 25px; font-size: 12px; overflow: hidden; margin-top: 6px; }
+#beta-ad-ans { margin-right: 8px; color: #29294b !important; display: inline-block; line-height: 24px; }
+.beta-ad-tag { color: #566E76!important; font-size: 11px; display: inline-block; background-color: #F7FDFF; text-decoration: none; white-space: nowrap; overflow: visible; margin: 2px 2px 6px 0; padding: 0.1em 0.6em; line-height: 1.4; border: 1px solid #C0D4DB; -moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px; }
+</style>
+
+<div id="beta-ad">
+    <div id="beta-ad-top"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2F%3Futm_medium%3Dad%26utm_source%3Dhttp-unix-stackexchange-com-questions-161814-different-sizes-after-copy%26utm_campaign%3Dlaw.stackexchange.com-promo%26utm_content%3D5548">law.stackexchange.com</a></div>
+    <div id="beta-ad-inner">
+        <div id="beta-ad-mid">
+            <a id="beta-ad-que" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2Fquestions%2F5548%2Fcan-temporary-visitors-be-married-in-the-us%3Futm_medium%3Dad%26utm_source%3Dhttp-unix-stackexchange-com-questions-161814-different-sizes-after-copy%26utm_campaign%3Dlaw.stackexchange.com-promo%26utm_content%3D5548">Can temporary visitors be married in the US?</a><br>
+            <div id="beta-ad-own">– <a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2Fusers%2F3620%2Fmarry%3Futm_medium%3Dad%26utm_source%3Dhttp-unix-stackexchange-com-questions-161814-different-sizes-after-copy%26utm_campaign%3Dlaw.stackexchange.com-promo%26utm_content%3D5548">marry</a></div>
+        </div>
+        <div id="beta-ad-bot"><a id="beta-ad-ans" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2Fquestions%2F5548%2Fcan-temporary-visitors-be-married-in-the-us%3Futm_medium%3Dad%26utm_source%3Dhttp-unix-stackexchange-com-questions-161814-different-sizes-after-copy%26utm_campaign%3Dlaw.stackexchange.com-promo%26utm_content%3D5548%23tab-top">1 answer</a> <a class="beta-ad-tag" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2Fquestions%2Ftagged%2Funited-states">united-states</a>  <a class="beta-ad-tag" href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&amp;s=RlBlWB6KekZXY6GfY38i9rAl-xw&amp;url=http%3A%2F%2Flaw.stackexchange.com%2Fquestions%2Ftagged%2Fmarriage">marriage</a> </div>
+    </div>
+</div>
+
+
+</div><script type="text/javascript">window._betaAdUrl = "http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6MTcsImJ0IjowLCJjbSI6OTkzLCJjaCI6MTE3OCwiY2siOnt9LCJjciI6MTI0OTEzNiwiZGkiOiI2NDU2NTU2ZjA3NTc0ZDUwYWQwY2NjYzdiZTFlYmVmZCIsImRtIjoxLCJmYyI6MTMzNzQzOCwiZmwiOjI4NDEsImlwIjoiMjQuODYuMTE0LjE2Iiwia3ciOiJweXRob24sbXVsdGlwcm9jZXNzaW5nLHBpY2tsZSIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNhIiwic3QiOjgyNzcsInVrIjoidWUxLTI5ODhjM2YxYmZhZjQ1YmNhMzZhNzlmNTk1MTQwZTlkIiwiem4iOjQ1LCJ0cyI6MTQ0OTA4MTkxMDc5NiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMTI4MDgxMDU4NiIsInVyIjpudWxsfQ&s=RlBlWB6KekZXY6GfY38i9rAl-xw";</script><script src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/js" type="text/javascript"></script><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li><li><label><input value="16" name="downvoteReason" type="radio">Other</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/i_003.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>
+        <div class=" tagthemedpython tag-themed python tagged" id="hireme"><a href="http://careers.stackoverflow.com/jobs/tag/python" target="_blank" data-tz="1" data-ti="4" class="top"><span>Want a <span class="header-tag">python</span> job?</span></a><div class="middle"><ul class="jobs"><li><a data-tz="3" data-ti="186841" href="http://careers.stackoverflow.com/jobs/100894/site-reliability-engineer-enernoc" target="_blank" title="Site Reliability Engineer at EnerNOC. Click to learn more.">Site Reliability Engineer<br><div class="company">EnerNOC</div><div class="location" title="Vancouver, BC, Canada / remote">Vancouver, BC, Canada / remote</div><span class="post-tag highlight">python</span><span class="post-tag">chef</span></a></li><li><a data-tz="3" data-ti="188963" href="http://careers.stackoverflow.com/jobs/103026/vancouver-senior-c-plus-plus-developer-animation-animal-logic" target="_blank" title="Vancouver Senior C++ Developer: Animation &amp; Rigging at Animal Logic. Click to learn more.">Vancouver Senior C++ Developer: Animation &amp; Rigging<br><div class="company">Animal Logic</div><div class="location" title="Vancouver, BC, Canada / relocation">Vancouver, BC, Canada / relocation</div><span class="post-tag highlight">python</span><span class="post-tag">c++</span></a></li></ul></div><img class="impression" src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/i.gif" style="display:none;"></div>
+			<div class="module" id="chat-feature">
+    
+
+    
+<h4><a title="152 users active in 42 rooms the last 60 minutes" href="http://chat.stackoverflow.com/" id="h-chat-link">152 People Chatting</a></h4>
+
+<div class="related" id="ad502-rooms"><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="JavaScript "><a href="http://chat.stackoverflow.com/rooms/17">JavaScript </a></span></h3><span title="2015-12-02 18:08:31Z" class="ad502-last-message">36 mins ago - <a href="http://chat.stackoverflow.com/users/129032">ssube</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/1348195"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/f6dca2295546af21e1cde8e68f2d49bd.jpeg" title="Benjamin Gruenbaum: 36 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/129032"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/e8bea8f9e6972dfd3113d67da68e6933.png" title="ssube: 36 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/410342"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/af5f0b031000821a8c179733db0a2f9e.jpeg" title="Shotgun Ninja: 36 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/1146881"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/wZqsm.jpg" title="nick: 37 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/2725684"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/HgQwr.jpg" title="American Slime: 37 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/1667460"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/4GlI2.png" title="nderscore: 37 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/1216976"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/8f10852a80ca4794f50a304254cb123b.png" title="SomeKittens: 38 mins ago" height="23" width="23"></a></div></div><div class="ad502-room"><h3 class="ad502-room-h3"><span class="ad502-room-title" title="Lounge&lt;C++&gt;"><a href="http://chat.stackoverflow.com/rooms/10">Lounge&lt;C++&gt;</a></span></h3><span title="2015-12-02 18:08:36Z" class="ad502-last-message">36 mins ago - <a href="http://chat.stackoverflow.com/users/179910">Jerry Coffin</a></span><br><div class="ad502-users"><a href="http://chat.stackoverflow.com/users/1348195"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/f6dca2295546af21e1cde8e68f2d49bd.jpeg" title="Benjamin Gruenbaum: 37 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/829835"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/N6iem.png" title="rlemon: 38 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/1804599"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/f6OAt.png" title="Elyse: 40 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/252000"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/082b8ee2b0aebb430b8d4d98e6a5c32f.png" title="fredoverflow: 41 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/1365454"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/ea6906f4c6019d6fd681ca3d8ab7333b.png" title="Badger Cat: 42 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/4560635"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/cmlM6.png" title="Jeremy: 44 mins ago" height="23" width="23"></a><a href="http://chat.stackoverflow.com/users/174614"><img src="Python%20multiprocessing%20pickling%20error%20-%20Stack%20Overflow_files/ca9a84fecd3f2fea333e8a1ef16edf98.jpeg" title="Tony The Lion: 48 mins ago" height="23" width="23"></a></div></div></div>
+<script>
+// <!--
+    StackExchange.ready(
+    function () {
+        var options = {
+            chatUrl: 'http://chat.stackoverflow.com',
+            reloadUrl: '/api/recent-chat',
+            preloadData: {"activeUsers":152,"activeRooms":42,"rooms":[{"name":"JavaScript ","id":17,"lastPost":1449079711,"posts":3039957,"users":[{"name":"Benjamin Gruenbaum","id":1348195,"emailhash":"f6dca2295546af21e1cde8e68f2d49bd","lastPost":1449079717},{"name":"ssube","id":129032,"emailhash":"e8bea8f9e6972dfd3113d67da68e6933","lastPost":1449079711},{"name":"Shotgun Ninja","id":410342,"emailhash":"af5f0b031000821a8c179733db0a2f9e","lastPost":1449079696},{"name":"nick","id":1146881,"emailhash":"!https://i.stack.imgur.com/wZqsm.jpg?s=128\u0026g=1","lastPost":1449079682},{"name":"American Slime","id":2725684,"emailhash":"!https://i.stack.imgur.com/HgQwr.jpg?s=128\u0026g=1","lastPost":1449079647},{"name":"nderscore","id":1667460,"emailhash":"!https://i.stack.imgur.com/4GlI2.png?s=128\u0026g=1","lastPost":1449079639},{"name":"SomeKittens","id":1216976,"emailhash":"8f10852a80ca4794f50a304254cb123b","lastPost":1449079621}],"messages":[{"date":1449079711,"user":"ssube","userid":129032}],"singleImage":false,"tags":["ecmascript","es6","javascript","kendalls-mom","nodejs","promises","rtfm","sometimes-coldfusion","youre-a-wizard-zirak"]},{"name":"Lounge\u003cC++\u003e","id":10,"lastPost":1449079716,"posts":4265907,"users":[{"name":"Benjamin Gruenbaum","id":1348195,"emailhash":"f6dca2295546af21e1cde8e68f2d49bd","lastPost":1449079687},{"name":"rlemon","id":829835,"emailhash":"!https://i.stack.imgur.com/N6iem.png?s=128\u0026g=1","lastPost":1449079587},{"name":"Elyse","id":1804599,"emailhash":"!https://i.stack.imgur.com/f6OAt.png?s=128\u0026g=1","lastPost":1449079495},{"name":"fredoverflow","id":252000,"emailhash":"082b8ee2b0aebb430b8d4d98e6a5c32f","lastPost":1449079400},{"name":"Badger Cat","id":1365454,"emailhash":"ea6906f4c6019d6fd681ca3d8ab7333b","lastPost":1449079363},{"name":"Jeremy","id":4560635,"emailhash":"!https://i.stack.imgur.com/cmlM6.png?s=128\u0026g=1","lastPost":1449079250},{"name":"Tony The Lion","id":174614,"emailhash":"ca9a84fecd3f2fea333e8a1ef16edf98","lastPost":1449078971}],"messages":[{"date":1449079716,"user":"Jerry Coffin","userid":179910}],"singleImage":false,"tags":["c++","c++11","c++14","c++-faq"]}]} 
+        };
+
+        StackExchange.chatAd.init(options);
+    });
+// -->
+</script>
+
+</div>  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/16674324?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/16674324/multiprocessing-map-raises-exception?lq=1" class="question-hyperlink">multiprocessing map raises exception</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/1816958?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">96</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/1816958/cant-pickle-type-instancemethod-when-using-pythons-multiprocessing-pool-ma?lq=1" class="question-hyperlink">Can't pickle &lt;type 'instancemethod'&gt; when using python's multiprocessing Pool.map()</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/19984152?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">18</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/19984152/what-can-multiprocessing-and-dill-do-together?lq=1" class="question-hyperlink">What can multiprocessing and dill do together?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/30378971?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/30378971/python-2-7-concurrent-futures-threadpoolexecutor-does-not-parallelize?lq=1" class="question-hyperlink">Python 2.7 concurrent.futures.ThreadPoolExecutor does not parallelize</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/27883574?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">3</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/27883574/cant-pickle-pyparsing-expression-with-setparseaction-method-needed-for-multi?lq=1" class="question-hyperlink">Can't pickle Pyparsing expression with setParseAction() method. Needed for multiprocessing</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25324560?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25324560/strange-queue-priorityqueue-behaviour-with-multiprocessing-in-python-2-7-6?lq=1" class="question-hyperlink">Strange Queue.PriorityQueue behaviour with multiprocessing in Python 2.7.6</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/26941056?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26941056/update-pyside-gui-from-multiprocessing-process?lq=1" class="question-hyperlink">Update PySide GUI from multiprocessing Process</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/30687688?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/30687688/how-to-avoid-memoryerror-about-permutations-in-python?lq=1" class="question-hyperlink">How to Avoid MemoryError About Permutations in Python</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/20714392?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/20714392/ipython-cluster-and-picklingerror?lq=1" class="question-hyperlink">IPython cluster and PicklingError</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25382111?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25382111/using-multiprocessing-in-a-class?lq=1" class="question-hyperlink">Using multiprocessing in a class</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/8804830?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/1816958?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">96
+    </div>
+</a><a href="http://stackoverflow.com/questions/1816958/cant-pickle-type-instancemethod-when-using-pythons-multiprocessing-pool-ma?rq=1" class="question-hyperlink">Can't pickle &lt;type 'instancemethod'&gt; when using python's multiprocessing Pool.map()</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3288595?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">81
+    </div>
+</a><a href="http://stackoverflow.com/questions/3288595/multiprocessing-using-pool-map-on-a-function-defined-in-a-class?rq=1" class="question-hyperlink">Multiprocessing: using Pool.map on a function defined in a class</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/18177827?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/18177827/python-pickle-error-for-multiprocessing-manager-sharing-lists?rq=1" class="question-hyperlink">Python Pickle Error For Multiprocessing Manager Sharing Lists</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/22304815?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/22304815/multiprocessing-objects-with-namedtuple-pickling-error?rq=1" class="question-hyperlink">Multiprocessing objects with namedtuple - Pickling Error</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/22418816?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/22418816/python-pickling-and-multiprocessing?rq=1" class="question-hyperlink">Python Pickling and multiprocessing</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24563475?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/24563475/why-does-python-multiprocessing-pickle-objects-to-pass-objects-between-processes?rq=1" class="question-hyperlink">Why does python multiprocessing pickle objects to pass objects between processes?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/27225053?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/27225053/python-multiprocessing-process-start-works-but-pool-apply-async-gives-pickle-i?rq=1" class="question-hyperlink">Python Multiprocessing: process.start works but pool.apply_async gives pickle 'instancemethod' error</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/28385291?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/28385291/python-multiprocessing-shared-counter-pickling-error?rq=1" class="question-hyperlink">python multiprocessing shared Counter , pickling error</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/31041096?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/31041096/python-pickle-error-with-multiprocessing?rq=1" class="question-hyperlink">Python: pickle error with multiprocessing</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/33008728?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/33008728/pathos-multiprocessing-cannot-pickle?rq=1" class="question-hyperlink">pathos multiprocessing cannot pickle</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/106953/how-do-attackers-find-the-ip-addresses-of-recently-deployed-servers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do attackers find the IP addresses of recently deployed servers?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/71625/risk-of-a-tpk-vs-realistic-npcs" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Risk of a TPK vs realistic NPCs
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/34041614/trivial-impossible-algorithm-challenge-in-octave-matlab" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Trivial/impossible algorithm challenge in Octave/Matlab
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/109289/are-there-police-in-the-wizarding-world" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there police in the Wizarding World?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/65420/you-are-the-weakest-link-goodbye" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    You are the Weakest Link, Goodbye
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-outdoors" title="The Great Outdoors Stack Exchange"></div><a href="http://outdoors.stackexchange.com/questions/10077/prohibited-to-walk-through-over-historical-significant-areas" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:395 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Prohibited to walk through/over historical significant areas?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gaming" title="Arqade"></div><a href="http://gaming.stackexchange.com/questions/246184/origin-of-the-name-brahmin-in-fallout-4" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:41 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Origin of the name Brahmin in fallout 4
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codereview" title="Code Review Stack Exchange"></div><a href="http://codereview.stackexchange.com/questions/112401/palindromes-in-c" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:196 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Palindromes in C
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/59118/is-it-normal-for-professors-to-not-have-families-or-not-spend-time-with-their-fa" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is it normal for professors to not have families or 
+not spend time with their families over the holidays, due to pressure of
+ work?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-dsp" title="Signal Processing Stack Exchange"></div><a href="http://dsp.stackexchange.com/questions/27451/the-difference-between-convolution-and-cross-correlation-from-a-signal-analysis" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:295 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    The difference between convolution and cross-correlation from a signal-analysis point of view
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="http://mathematica.stackexchange.com/questions/101012/repeatedly-applying-a-function" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Repeatedly applying a function
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/74624/i-want-to-understand-what-my-options-are-or-i-want-to-understand-what-are-my" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    "I want to understand what my options are" or "I want to understand what are my options"?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/1007968/what-lubricants-can-be-safely-added-to-a-laptop-fan" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What lubricants can be safely added to a laptop fan?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/109340/were-there-any-other-ways-into-mordor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Were there any other ways into Mordor?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-pets" title="Pets Stack Exchange"></div><a href="http://pets.stackexchange.com/questions/10930/is-my-cats-behaviour-normal" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:518 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is my cat's behaviour normal?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/12844/why-dont-reaction-wheels-destabilize-spacecraft-over-time" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why don't reaction wheels destabilize spacecraft over time?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/109234/why-did-harry-name-his-child-after-snape" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why did Harry name his child after Snape?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/65519/well-thats-odd-no-wait-thats-even" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Well that's odd... no wait, that's even!
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/704572/what-is-the-meaning-of-the-symbol-in-the-shell" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the meaning of the `|` symbol in the shell?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="http://gamedev.stackexchange.com/questions/112247/should-i-tell-the-player-he-has-no-chance-to-complete-the-level" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Should I tell the player he has no chance to complete the level?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/34046070/why-are-two-raw-pointers-needed-in-stdshared-ptr-implementation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why are two raw pointers needed in std::shared_ptr implementation?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1554929/zero-divided-by-zero-must-be-equal-to-zero" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Zero divided by zero must be equal to zero
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/106910/corporate-computers-have-own-corporations-cert-as-trusted-ca-should-i-consider" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Corporate computers have own corporation's cert as trusted CA; should I consider all traffic compromised?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/246825/copy-content-from-files-x-and-y-to-create-file-xy-but-xy-content-is-all-lowercas" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Copy content from files X and Y to create file XY but XY content is all lowercase
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/8804830" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/8804830/ivc/8894');});
+</script>
+<noscript>
+    <div><img src="/posts/8804830/ivc/8894" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-py</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.12.1.3044
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('python,multiprocessing,pickle');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');
+                        ga('set', 'dimension2', '|python|multiprocessing|pickle|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+</body></html>
